@@ -380,8 +380,17 @@ export default function ContactPage() {
 
       {/* ── Trust Section ─────────────────────────────────────── */}
       <section className="relative bg-teal-50/40 py-20 md:py-28 overflow-hidden">
+        {/* Photo background for texture */}
+        <Image
+          src={`${basePath}/images/ceiling-fan.jpg`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.08]"
+          aria-hidden="true"
+        />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — editorial */}
             <ScrollReveal direction="left">

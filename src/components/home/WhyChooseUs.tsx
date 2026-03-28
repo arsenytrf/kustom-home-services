@@ -39,6 +39,15 @@ export default function WhyChooseUs() {
       className="relative bg-teal-50/50 py-20 md:py-28 lg:py-32 overflow-hidden"
       aria-labelledby="why-heading"
     >
+      {/* Photo background for texture */}
+      <Image
+        src={`${basePath}/images/ceiling-fan.jpg`}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-[0.08]"
+        aria-hidden="true"
+      />
       {/* Decorative teal gradient orb */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-100/30 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" aria-hidden="true" />

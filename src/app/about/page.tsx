@@ -298,9 +298,18 @@ export default function AboutPage() {
 
       {/* ── Values ────────────────────────────────────────────── */}
       <section className="relative bg-teal-50/50 py-20 md:py-28 lg:py-32 overflow-hidden">
+        {/* Photo background for texture */}
+        <Image
+          src={`${basePath}/images/bathroom-mirror.jpg`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.08]"
+          aria-hidden="true"
+        />
         {/* Decorative gradient orb */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
               label="What We Stand For"

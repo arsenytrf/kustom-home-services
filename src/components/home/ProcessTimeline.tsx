@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Phone, MapPin, FileText, CheckCircle } from "lucide-react";
+import { basePath } from "@/data/company";
 import { useGsapScroll } from "@/hooks/useGsapScroll";
 import SectionHeader from "@/components/shared/SectionHeader";
 
@@ -99,10 +101,19 @@ export default function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-slate-50 to-teal-50/30 py-20 md:py-28 lg:py-32"
+      className="relative bg-gradient-to-b from-slate-50 to-teal-50/30 py-20 md:py-28 lg:py-32 overflow-hidden"
       aria-labelledby="process-heading"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Photo background for texture */}
+      <Image
+        src={`${basePath}/images/bathroom-mirror.jpg`}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-[0.08]"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="How It Works"
           title="4 Simple Steps"

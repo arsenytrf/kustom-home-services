@@ -98,11 +98,6 @@ export default function HomeHero() {
         aria-hidden="true"
       />
 
-      {/* Decorative teal corner dots */}
-      <div className="absolute top-20 left-8 w-2 h-2 rounded-full bg-teal-400/30" aria-hidden="true" />
-      <div className="absolute top-28 left-16 w-1.5 h-1.5 rounded-full bg-teal-300/20" aria-hidden="true" />
-      <div className="absolute bottom-20 right-12 w-2.5 h-2.5 rounded-full bg-teal-400/20" aria-hidden="true" />
-      <div className="absolute bottom-32 right-24 w-1.5 h-1.5 rounded-full bg-teal-300/15" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 lg:pt-36 pb-12">
         {/* Main hero content — two columns on large screens */}
