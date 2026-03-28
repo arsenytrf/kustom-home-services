@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -10,7 +11,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
-import { company } from "@/data/company";
+import { company, basePath } from "@/data/company";
 import { navLinks, ctaLink } from "@/data/navigation";
 
 const backdropVariants = {
