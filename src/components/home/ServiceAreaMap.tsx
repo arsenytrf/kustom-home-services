@@ -13,7 +13,7 @@ export default function ServiceAreaMap() {
       aria-labelledby="area-heading"
     >
       <Image
-        src={`${basePath}/images/branded-truck.png`}
+        src={`${basePath}/images/ceiling-fan.jpg`}
         alt=""
         fill
         sizes="100vw"
