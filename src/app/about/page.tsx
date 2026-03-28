@@ -279,7 +279,7 @@ export default function AboutPage() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.08]"
+          className="object-cover opacity-[0.12]"
           aria-hidden="true"
         />
         {/* Decorative gradient orb */}

@@ -369,7 +369,7 @@ export default function ContactPage() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.08]"
+          className="object-cover opacity-[0.12]"
           aria-hidden="true"
         />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" aria-hidden="true" />

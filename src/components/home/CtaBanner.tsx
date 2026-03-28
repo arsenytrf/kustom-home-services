@@ -1,22 +1,30 @@
 "use client";
 
+import Image from "next/image";
 import { Phone } from "lucide-react";
-import { company } from "@/data/company";
+import { company, basePath } from "@/data/company";
 import Button from "@/components/shared/Button";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export default function CtaBanner() {
   return (
     <section className="relative overflow-hidden" aria-label="Call to action">
-      {/* Teal background with diagonal clip */}
+      {/* Teal background with photo + diagonal clip */}
       <div
-        className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-20 md:py-28 lg:py-32"
+        className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-20 md:py-28 lg:py-32 overflow-hidden"
         style={{
           clipPath: "polygon(0 8%, 100% 0%, 100% 92%, 0% 100%)",
         }}
       >
-        {/* Decorative dot grid */}
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} aria-hidden="true" />
+        {/* Photo background */}
+        <Image
+          src={`${basePath}/images/bathroom-mirror.jpg`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.12]"
+          aria-hidden="true"
+        />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>

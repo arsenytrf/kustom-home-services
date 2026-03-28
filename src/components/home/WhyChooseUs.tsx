@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-[0.08]"
+        className="object-cover opacity-[0.12]"
         aria-hidden="true"
       />
       {/* Decorative teal gradient orb */}

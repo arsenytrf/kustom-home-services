@@ -17,7 +17,7 @@ export default function ServiceAreaMap() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-[0.06]"
+        className="object-cover opacity-[0.15]"
         aria-hidden="true"
       />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

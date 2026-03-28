@@ -359,7 +359,7 @@ export default function ServicesPage() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.08]"
+          className="object-cover opacity-[0.12]"
           aria-hidden="true"
         />
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
