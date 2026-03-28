@@ -1,0 +1,292 @@
+"use client";
+
+import { useState, useRef, type FormEvent } from "react";
+import { cn } from "@/lib/cn";
+import { company } from "@/data/company";
+import { services } from "@/data/services";
+import { BadgeCheck, AlertCircle } from "lucide-react";
+
+const propertyOptions = ["House", "Apartment", "Condo", "Commercial", "Other"];
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
+/* Shared input classes */
+const inputBase = cn(
+  "w-full bg-slate-800/60 border border-slate-700/50 text-white px-4 py-3 text-sm",
+  "rounded-none min-h-[46px] [-webkit-appearance:none]",
+  "focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/50",
+  "transition-colors placeholder:text-slate-600"
+);
+
+const labelBase =
+  "block text-xs font-display uppercase tracking-wider text-slate-400 mb-1.5";
+
+export default function QuoteForm() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const formData = new FormData(e.currentTarget);
+
+    /* Honeypot check */
+    if (formData.get("_gotcha")) {
+      setStatus("success");
+      return;
+    }
+
+    try {
+      const response = await fetch(company.formAction, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        formRef.current?.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  /* ── Success State ────────────────────────────────────── */
+  if (status === "success") {
+    return (
+      <div className="bg-slate-900 border border-slate-800 p-8 md:p-10">
+        <div className="text-center py-8">
+          <div className="w-16 h-16 rounded-full bg-teal-500/20 flex items-center justify-center mx-auto mb-4">
+            <BadgeCheck className="w-8 h-8 text-teal-400" />
+          </div>
+          <h3 className="font-display text-2xl font-bold text-white mb-2">
+            Request Received
+          </h3>
+          <p className="text-slate-400 max-w-sm mx-auto">
+            We&rsquo;ll get back to you within 24 hours with an honest quote. No
+            surprises, no hidden fees.
+          </p>
+          <button
+            onClick={() => setStatus("idle")}
+            className="mt-6 text-teal-400 hover:text-teal-300 font-display text-sm uppercase tracking-wider transition-colors cursor-pointer"
+          >
+            Submit Another Request
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  /* ── Form ─────────────────────────────────────────────── */
+  return (
+    <div className="bg-slate-900 border border-slate-800 p-6 md:p-8 lg:p-10">
+      <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
+        Request a Free Quote
+      </h3>
+      <p className="text-slate-400 text-sm mb-6">
+        Tell us what you need &mdash; we&rsquo;ll get back to you within 24
+        hours.
+      </p>
+
+      {/* Error banner */}
+      {status === "error" && (
+        <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 flex items-start gap-2 text-red-400 text-sm">
+          <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+          <span>
+            Something went wrong. Please try again or call us at{" "}
+            <a href={`tel:${company.phoneRaw}`} className="underline">
+              {company.phone}
+            </a>
+            .
+          </span>
+        </div>
+      )}
+
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="space-y-5"
+        noValidate
+      >
+        {/* Honeypot */}
+        <input
+          type="text"
+          name="_gotcha"
+          tabIndex={-1}
+          autoComplete="off"
+          className="absolute opacity-0 pointer-events-none h-0 w-0"
+          aria-hidden="true"
+        />
+
+        {/* Row 1: Service + Property Type */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="quote-service" className={labelBase}>
+              Service Needed
+            </label>
+            <select
+              id="quote-service"
+              name="service"
+              required
+              className={cn(inputBase, "appearance-none cursor-pointer")}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select a service
+              </option>
+              {services.map((s) => (
+                <option key={s.slug} value={s.title}>
+                  {s.title}
+                </option>
+              ))}
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="quote-property" className={labelBase}>
+              Property Type
+            </label>
+            <select
+              id="quote-property"
+              name="property"
+              required
+              className={cn(inputBase, "appearance-none cursor-pointer")}
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Select type
+              </option>
+              {propertyOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Row 2: Describe the Issue */}
+        <div>
+          <label htmlFor="quote-issue" className={labelBase}>
+            Describe the Issue
+          </label>
+          <textarea
+            id="quote-issue"
+            name="message"
+            rows={4}
+            placeholder="Tell us what's going on..."
+            className={cn(inputBase, "resize-none")}
+          />
+        </div>
+
+        {/* Row 3: Address */}
+        <div>
+          <label htmlFor="quote-address" className={labelBase}>
+            Your Address
+          </label>
+          <input
+            type="text"
+            id="quote-address"
+            name="address"
+            placeholder="123 Main St, Okeechobee, FL"
+            autoComplete="street-address"
+            className={inputBase}
+          />
+        </div>
+
+        {/* Row 4: First Name + Last Name */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="quote-first-name" className={labelBase}>
+              First Name
+            </label>
+            <input
+              type="text"
+              id="quote-first-name"
+              name="firstName"
+              required
+              placeholder="John"
+              autoComplete="given-name"
+              className={inputBase}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="quote-last-name" className={labelBase}>
+              Last Name
+            </label>
+            <input
+              type="text"
+              id="quote-last-name"
+              name="lastName"
+              required
+              placeholder="Smith"
+              autoComplete="family-name"
+              className={inputBase}
+            />
+          </div>
+        </div>
+
+        {/* Row 5: Phone + Email */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="quote-phone" className={labelBase}>
+              Phone
+            </label>
+            <input
+              type="tel"
+              id="quote-phone"
+              name="phone"
+              required
+              placeholder="(555) 123-4567"
+              autoComplete="tel"
+              className={inputBase}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="quote-email" className={labelBase}>
+              Email
+            </label>
+            <input
+              type="email"
+              id="quote-email"
+              name="email"
+              placeholder="you@email.com"
+              autoComplete="email"
+              className={inputBase}
+            />
+          </div>
+        </div>
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className={cn(
+            "w-full bg-teal-500 text-slate-950 font-display uppercase tracking-wider font-bold",
+            "py-4 text-sm rounded-full transition-all duration-300",
+            "hover:bg-teal-400 active:bg-teal-600",
+            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500",
+            "disabled:opacity-60 disabled:pointer-events-none",
+            "cursor-pointer"
+          )}
+        >
+          {status === "submitting" ? (
+            <span className="flex items-center justify-center gap-2">
+              <span className="w-4 h-4 border-2 border-slate-950/30 border-t-slate-950 rounded-full animate-spin" />
+              Sending...
+            </span>
+          ) : (
+            "Send Quote Request"
+          )}
+        </button>
+      </form>
+    </div>
+  );
+}
