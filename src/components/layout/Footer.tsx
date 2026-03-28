@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white relative">
       {/* Teal top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-6 pt-14 pb-8">
         {/* Row 1: Brand + Nav + Contact — all in one row */}
@@ -110,7 +110,7 @@ export default function Footer() {
             </span>
           ))}
           <span className="px-2 py-0.5 text-[11px] text-teal-500 bg-teal-500/5 border border-teal-500/10 rounded">
-            Family-Owned Since {company.founded}
+            Family-Owned & Operated
           </span>
         </div>
 

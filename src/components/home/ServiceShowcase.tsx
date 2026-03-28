@@ -8,7 +8,10 @@ import Link from "next/link";
 
 export default function ServiceShowcase() {
   return (
-    <section className="bg-white py-20 md:py-28 lg:py-32" aria-labelledby="services-heading">
+    <section className="relative bg-white py-20 md:py-28 lg:py-32" aria-labelledby="services-heading">
+      {/* Subtle teal gradient accent at top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-300 to-transparent" aria-hidden="true" />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeader
@@ -26,10 +29,10 @@ export default function ServiceShowcase() {
             <ScrollReveal key={service.slug} delay={index * 0.08}>
               <Link
                 href={`/services#${service.slug}`}
-                className="group flex items-center gap-4 sm:gap-6 md:gap-8 py-6 md:py-8 transition-colors hover:bg-slate-50 -mx-4 px-4 sm:-mx-6 sm:px-6 rounded-lg"
+                className="group flex items-center gap-4 sm:gap-6 md:gap-8 py-6 md:py-8 transition-colors hover:bg-teal-50/50 -mx-4 px-4 sm:-mx-6 sm:px-6 rounded-xl"
               >
                 {/* Number */}
-                <span className="shrink-0 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-slate-200 group-hover:text-teal-500 transition-colors duration-300 tabular-nums w-16 md:w-20">
+                <span className="shrink-0 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-teal-400/40 group-hover:text-teal-500 transition-colors duration-300 tabular-nums w-16 md:w-20">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
@@ -44,8 +47,8 @@ export default function ServiceShowcase() {
                 </div>
 
                 {/* Arrow */}
-                <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-slate-200 group-hover:border-teal-500 group-hover:bg-teal-500 transition-all duration-300 rounded-lg">
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-slate-400 group-hover:text-white transition-colors duration-300 group-hover:translate-x-0.5" />
+                <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-teal-200 group-hover:border-teal-500 group-hover:bg-teal-500 transition-all duration-300 rounded-xl bg-teal-50">
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-teal-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-0.5" />
                 </div>
               </Link>
             </ScrollReveal>

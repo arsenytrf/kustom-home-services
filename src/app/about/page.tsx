@@ -22,7 +22,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 
 export const metadata: Metadata = {
   title: `About Us | ${company.name}`,
-  description: `Family-owned handyman business based in ${company.address}. Honest work, quality results. Serving ${company.serviceArea} since ${company.founded}. Call ${company.phone}.`,
+  description: `Family-owned handyman business based in ${company.address}. Honest work, quality results. Serving ${company.serviceArea}. Call ${company.phone}.`,
 };
 
 const values = [
@@ -53,10 +53,10 @@ const values = [
 ];
 
 const milestones = [
-  { year: `${company.founded}`, event: "Founded in Okeechobee, FL" },
-  { year: `${company.founded}`, event: "First 50 jobs completed" },
-  { year: `${company.founded}`, event: "Expanded to all of Florida" },
-  { year: "Today", event: "100+ happy customers and counting" },
+  { year: "100+", event: "Projects Completed" },
+  { year: "6+", event: "Services Offered" },
+  { year: "ALL FL", event: "Service Area" },
+  { year: "24HR", event: "Response Time" },
 ];
 
 export default function AboutPage() {
@@ -178,7 +178,7 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-teal-500" />
-                <span>Est. {company.founded}</span>
+                <span>24hr Response</span>
               </div>
             </div>
           </ScrollReveal>
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 {/* Badge overlay */}
                 <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg">
                   <span className="font-display text-sm font-bold text-teal-600 uppercase tracking-wider">
-                    Est. {company.founded}
+                    Family-Owned
                   </span>
                 </div>
               </div>
@@ -236,9 +236,9 @@ export default function AboutPage() {
                 <div className="space-y-4 text-slate-500 text-base sm:text-lg leading-relaxed">
                   <p>
                     We&rsquo;re a family-owned handyman business out of
-                    Okeechobee, Florida. We started in {company.founded} with a
-                    simple idea: show up on time, do the work right, charge a
-                    fair price, and clean up when you&rsquo;re done.
+                    Okeechobee, Florida. We started with a simple idea: show up
+                    on time, do the work right, charge a fair price, and clean
+                    up when you&rsquo;re done.
                   </p>
                   <p>
                     No corporate overhead. No call centers. No runaround. When
@@ -297,7 +297,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Values ────────────────────────────────────────────── */}
-      <section className="bg-slate-50 py-20 md:py-28 lg:py-32 overflow-hidden">
+      <section className="relative bg-teal-50/50 py-20 md:py-28 lg:py-32 overflow-hidden">
+        {/* Decorative gradient orb */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -336,9 +338,11 @@ export default function AboutPage() {
                 const Icon = item.icon;
                 return (
                   <ScrollReveal key={item.title} delay={i * 0.1} direction="right">
-                    <div className="bg-white border border-slate-200 hover-lift p-5 md:p-6 h-full group rounded-xl shadow-sm">
-                      <div className="w-10 h-10 flex items-center justify-center bg-teal-50 border border-teal-200 rounded-lg mb-4 group-hover:bg-teal-100 transition-colors">
-                        <Icon className="w-5 h-5 text-teal-600" />
+                    <div className="relative bg-white border border-slate-200 hover-lift p-5 md:p-6 h-full group rounded-xl shadow-sm overflow-hidden">
+                      {/* Teal top border accent */}
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" aria-hidden="true" />
+                      <div className="w-10 h-10 flex items-center justify-center bg-teal-50 border border-teal-200 rounded-lg mb-4 group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-300">
+                        <Icon className="w-5 h-5 text-teal-600 group-hover:text-white transition-colors duration-300" />
                       </div>
                       <h3 className="font-display text-base md:text-lg font-bold text-slate-900 mb-2">
                         {item.title}
@@ -401,12 +405,13 @@ export default function AboutPage() {
       {/* ── CTA Banner ────────────────────────────────────────── */}
       <section className="relative overflow-hidden" aria-label="Call to action">
         <div
-          className="bg-teal-500 py-16 md:py-20 lg:py-24"
+          className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-16 md:py-20 lg:py-24"
           style={{
             clipPath: "polygon(0 8%, 100% 0%, 100% 92%, 0% 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} aria-hidden="true" />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <ScrollReveal>
               <span className="inline-block font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-teal-950/70 mb-3">
                 Let&rsquo;s Work Together

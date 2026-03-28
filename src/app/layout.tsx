@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import LenisProvider from "@/components/layout/LenisProvider";
 import StickyPhone from "@/components/layout/StickyPhone";
 import BackToTop from "@/components/layout/BackToTop";
+import LeadCollector from "@/components/ui/LeadCollector";
 
 export const metadata: Metadata = {
   title: "Kustom Home Services LLC | Handyman — Okeechobee, FL",
@@ -56,6 +57,7 @@ export default function RootLayout({
 
         <StickyPhone />
         <BackToTop />
+        <LeadCollector />
       </body>
     </html>
   );

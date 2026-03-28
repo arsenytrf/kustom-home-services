@@ -42,7 +42,7 @@ const galleryItems: GalleryItem[] = [
 export default function ProjectGallery() {
   return (
     <section
-      className="bg-white py-20 md:py-28 lg:py-32"
+      className="relative bg-white py-20 md:py-28 lg:py-32"
       aria-labelledby="gallery-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,7 +67,7 @@ export default function ProjectGallery() {
                   : ""
               }
             >
-              <div className="relative group overflow-hidden h-full min-h-[240px] sm:min-h-[280px] rounded-xl shadow-md">
+              <div className="relative group overflow-hidden h-full min-h-[240px] sm:min-h-[280px] rounded-2xl shadow-lg border border-slate-200/50">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -80,22 +80,19 @@ export default function ProjectGallery() {
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Persistent gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/70 via-slate-900/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Label on hover */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                {/* Label — always visible */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                   <span className="inline-block font-display text-xs uppercase tracking-[0.15em] text-teal-300 font-semibold mb-1">
                     {item.label}
                   </span>
-                  <div className="w-8 h-0.5 bg-teal-400" aria-hidden="true" />
+                  <div className="w-8 h-0.5 bg-teal-400 group-hover:w-16 transition-all duration-500" aria-hidden="true" />
                 </div>
 
-                {/* Persistent bottom gradient for contrast */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-slate-900/30 to-transparent group-hover:from-transparent transition-all duration-500"
-                  aria-hidden="true"
-                />
+                {/* Teal corner accent */}
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-teal-400/50 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
               </div>
             </ScrollReveal>
           ))}

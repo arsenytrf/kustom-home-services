@@ -266,7 +266,7 @@ export default function ServicesPage() {
                     >
                       {/* Image */}
                       <div
-                        className={`relative overflow-hidden group rounded-2xl ${
+                        className={`relative overflow-hidden group rounded-2xl shadow-xl ${
                           isEven ? "lg:order-2" : ""
                         }`}
                       >
@@ -374,7 +374,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Pricing / Transparency ────────────────────────────── */}
-      <section className="bg-white py-20 md:py-28 lg:py-32">
+      <section className="relative bg-teal-50/40 py-20 md:py-28 lg:py-32">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left — editorial text */}
@@ -436,14 +437,16 @@ export default function ServicesPage() {
                 },
               ].map((item, i) => (
                 <ScrollReveal key={item.title} delay={i * 0.1} direction="right">
-                  <div className="relative bg-white border border-slate-200 hover-lift p-6 h-full group rounded-xl shadow-sm">
+                  <div className="relative bg-white border border-slate-200 hover-lift p-6 h-full group rounded-xl shadow-sm overflow-hidden">
+                    {/* Teal top border accent */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" aria-hidden="true" />
                     {/* Number watermark */}
-                    <span className="absolute top-3 right-4 font-display text-5xl font-bold text-slate-100 select-none">
+                    <span className="absolute top-3 right-4 font-display text-5xl font-bold text-teal-100 select-none">
                       {item.number}
                     </span>
                     <div className="relative">
-                      <div className="w-10 h-10 flex items-center justify-center bg-teal-50 border border-teal-200 rounded-lg mb-4 group-hover:bg-teal-100 transition-colors">
-                        <item.icon className="w-5 h-5 text-teal-600" />
+                      <div className="w-10 h-10 flex items-center justify-center bg-teal-50 border border-teal-200 rounded-lg mb-4 group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-300">
+                        <item.icon className="w-5 h-5 text-teal-600 group-hover:text-white transition-colors duration-300" />
                       </div>
                       <h3 className="font-display text-base md:text-lg font-bold text-slate-900 mb-2">
                         {item.title}
@@ -463,12 +466,13 @@ export default function ServicesPage() {
       {/* ── CTA Banner ────────────────────────────────────────── */}
       <section className="relative overflow-hidden" aria-label="Call to action">
         <div
-          className="bg-teal-500 py-16 md:py-20 lg:py-24"
+          className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-16 md:py-20 lg:py-24"
           style={{
             clipPath: "polygon(0 8%, 100% 0%, 100% 92%, 0% 100%)",
           }}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} aria-hidden="true" />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <ScrollReveal>
               <span className="inline-block font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-teal-950/70 mb-3">
                 Let&rsquo;s Get Started

@@ -218,7 +218,7 @@ export default function ContactPage() {
               {contactCards.map((card, i) => {
                 const Icon = card.icon;
                 const inner = (
-                  <div className="flex items-start gap-4 p-5 bg-white border border-slate-200 hover:border-teal-300 hover:shadow-md transition-all duration-300 rounded-xl shadow-sm group">
+                  <div className="flex items-start gap-4 p-5 bg-white border border-slate-200 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-500/10 transition-all duration-300 rounded-xl shadow-sm group">
                     <div className="shrink-0 w-11 h-11 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-lg group-hover:bg-teal-100 transition-colors">
                       <Icon className="w-5 h-5 text-teal-600" />
                     </div>
@@ -278,7 +278,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Google Maps ───────────────────────────────────────── */}
-      <section className="bg-slate-50 py-20 md:py-28">
+      <section className="relative bg-gradient-to-b from-slate-50 to-teal-50/30 py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -356,7 +356,7 @@ export default function ContactPage() {
                   <ScrollReveal key={step.number} delay={i * 0.15}>
                     <div className="relative text-center group">
                       {/* Step number circle */}
-                      <div className="relative mx-auto mb-6 w-20 h-20 bg-white border-2 border-teal-500 rounded-full flex items-center justify-center shadow-lg shadow-teal-500/10 group-hover:bg-teal-50 transition-colors">
+                      <div className="relative mx-auto mb-6 w-20 h-20 bg-white border-2 border-teal-500 rounded-full flex items-center justify-center shadow-lg shadow-teal-500/15 group-hover:bg-teal-50 group-hover:shadow-teal-500/30 transition-all duration-300">
                         <Icon className="w-8 h-8 text-teal-600" />
                         <span className="absolute -top-2 -right-2 w-8 h-8 bg-teal-500 text-white rounded-full flex items-center justify-center font-display text-xs font-bold">
                           {step.number}
@@ -379,7 +379,8 @@ export default function ContactPage() {
       </section>
 
       {/* ── Trust Section ─────────────────────────────────────── */}
-      <section className="bg-slate-50 py-20 md:py-28 overflow-hidden">
+      <section className="relative bg-teal-50/40 py-20 md:py-28 overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left — editorial */}
@@ -422,9 +423,11 @@ export default function ContactPage() {
                 const Icon = item.icon;
                 return (
                   <ScrollReveal key={item.title} delay={i * 0.1} direction="right">
-                    <div className="bg-white border border-slate-200 hover-lift p-6 h-full group rounded-xl shadow-sm">
-                      <div className="w-12 h-12 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-xl mb-5 group-hover:bg-teal-100 transition-colors">
-                        <Icon className="w-6 h-6 text-teal-600" />
+                    <div className="relative bg-white border border-slate-200 hover-lift p-6 h-full group rounded-xl shadow-sm overflow-hidden">
+                      {/* Teal top border accent */}
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-teal-600" aria-hidden="true" />
+                      <div className="w-12 h-12 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-xl mb-5 group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-300">
+                        <Icon className="w-6 h-6 text-teal-600 group-hover:text-white transition-colors duration-300" />
                       </div>
                       <h3 className="font-display text-base md:text-lg font-bold text-slate-900 mb-2">
                         {item.title}

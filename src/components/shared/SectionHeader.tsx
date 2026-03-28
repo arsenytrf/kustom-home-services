@@ -33,14 +33,17 @@ export default function SectionHeader({
       className={cn("max-w-3xl mb-12 md:mb-16", alignClasses[align], className)}
     >
       {label && (
-        <span
-          className={cn(
-            "inline-block text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold mb-3 md:mb-4",
-            light ? "text-teal-600" : "text-teal-400"
-          )}
-        >
-          {label}
-        </span>
+        <div className="mb-3 md:mb-4">
+          <span
+            className={cn(
+              "inline-flex items-center gap-2 text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold",
+              light ? "text-teal-600" : "text-teal-400"
+            )}
+          >
+            <span className={cn("w-8 h-px", light ? "bg-teal-500" : "bg-teal-400")} aria-hidden="true" />
+            {label}
+          </span>
+        </div>
       )}
 
       <h2

@@ -182,7 +182,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             <div className="mx-8 flex items-center gap-2 px-4 py-3 rounded-lg bg-teal-50 border border-teal-200">
               <div className="h-2 w-2 rounded-full bg-teal-500" />
               <span className="text-xs text-teal-700 font-medium">
-                Family-Owned & Operated Since {company.founded}
+                Family-Owned & Operated
               </span>
             </div>
 

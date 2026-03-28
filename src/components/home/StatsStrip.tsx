@@ -57,8 +57,8 @@ function StatCounter({
   const count = useCountUp(stat.numericValue ?? 0, 2000, isVisible);
 
   return (
-    <div className="flex flex-col items-center gap-1 py-6 md:py-8">
-      <span className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+    <div className="flex flex-col items-center gap-2 py-6 md:py-8 group">
+      <span className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-sm">
         {stat.numericValue !== undefined ? (
           <>
             {count}
@@ -68,7 +68,7 @@ function StatCounter({
           stat.value
         )}
       </span>
-      <span className="font-display text-xs uppercase tracking-[0.2em] text-teal-300 font-medium">
+      <span className="font-display text-[10px] sm:text-xs uppercase tracking-[0.2em] text-teal-300 font-medium">
         {stat.label}
       </span>
     </div>

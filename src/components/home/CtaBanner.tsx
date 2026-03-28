@@ -10,12 +10,15 @@ export default function CtaBanner() {
     <section className="relative overflow-hidden" aria-label="Call to action">
       {/* Teal background with diagonal clip */}
       <div
-        className="bg-teal-500 py-16 md:py-20 lg:py-24"
+        className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-16 md:py-20 lg:py-24"
         style={{
           clipPath: "polygon(0 8%, 100% 0%, 100% 92%, 0% 100%)",
         }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Decorative dot grid */}
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} aria-hidden="true" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <span className="inline-block font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-teal-950/70 mb-3">
               Ready to Get Started?

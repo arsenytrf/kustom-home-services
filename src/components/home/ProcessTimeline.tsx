@@ -99,7 +99,7 @@ export default function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="bg-slate-50 py-20 md:py-28 lg:py-32"
+      className="relative bg-gradient-to-b from-slate-50 to-teal-50/30 py-20 md:py-28 lg:py-32"
       aria-labelledby="process-heading"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

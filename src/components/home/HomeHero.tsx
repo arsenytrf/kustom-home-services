@@ -98,6 +98,12 @@ export default function HomeHero() {
         aria-hidden="true"
       />
 
+      {/* Decorative teal corner dots */}
+      <div className="absolute top-20 left-8 w-2 h-2 rounded-full bg-teal-400/30" aria-hidden="true" />
+      <div className="absolute top-28 left-16 w-1.5 h-1.5 rounded-full bg-teal-300/20" aria-hidden="true" />
+      <div className="absolute bottom-20 right-12 w-2.5 h-2.5 rounded-full bg-teal-400/20" aria-hidden="true" />
+      <div className="absolute bottom-32 right-24 w-1.5 h-1.5 rounded-full bg-teal-300/15" aria-hidden="true" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 lg:pt-36 pb-12">
         {/* Main hero content — two columns on large screens */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -154,19 +160,19 @@ export default function HomeHero() {
             {/* Trust strip */}
             <div
               data-hero-trust
-              className="flex flex-wrap items-center gap-5 text-xs text-slate-400"
+              className="flex flex-wrap items-center gap-4 sm:gap-5 text-xs text-slate-500"
             >
-              <div className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-warm-400 fill-warm-400" />
-                <span>5-Star Rated</span>
+              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
+                <Star className="w-3.5 h-3.5 text-warm-400 fill-warm-400" />
+                <span className="font-medium">5-Star Rated</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-teal-500" />
-                <span>Licensed & Insured</span>
+              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-teal-500" />
+                <span className="font-medium">Licensed & Insured</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-teal-500" />
-                <span>24hr Response</span>
+              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
+                <Clock className="w-3.5 h-3.5 text-teal-500" />
+                <span className="font-medium">24hr Response</span>
               </div>
             </div>
           </div>
@@ -188,7 +194,7 @@ export default function HomeHero() {
                 width={700}
                 height={450}
                 className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
-                preload
+                priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 700px"
               />
             </div>

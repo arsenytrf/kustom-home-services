@@ -32,8 +32,10 @@ export default function BackToTop() {
     <button
       onClick={scrollToTop}
       className={cn(
-        "fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center",
-        "bg-white hover:bg-teal-50 text-slate-600 hover:text-teal-600 shadow-lg",
+        "fixed z-40 rounded-full flex items-center justify-center",
+        "bottom-6 right-6 w-14 h-14 lg:w-12 lg:h-12",
+        "bg-white hover:bg-teal-50 text-slate-600 hover:text-teal-600",
+        "shadow-lg shadow-slate-300/40 border border-slate-200",
         "transition-all duration-300 cursor-pointer",
         visible
           ? "opacity-100 translate-y-0 scale-100"
@@ -72,7 +74,7 @@ export default function BackToTop() {
         />
       </svg>
       {/* Arrow icon */}
-      <ArrowUp className="w-4 h-4 relative z-10" />
+      <ArrowUp className="w-5 h-5 lg:w-4 lg:h-4 relative z-10" />
     </button>
   );
 }
