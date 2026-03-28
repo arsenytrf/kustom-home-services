@@ -43,14 +43,8 @@ const serviceDetails: Record<string, string> = {
 export default function ServicesPage() {
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
-      <section className="relative bg-slate-900 pt-32 pb-20 md:pt-40 md:pb-28">
-        {/* Subtle gradient overlay */}
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-slate-950/60 to-slate-900"
-          aria-hidden="true"
-        />
-
+      {/* -- Hero ------------------------------------------------- */}
+      <section className="relative bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <nav
@@ -59,28 +53,28 @@ export default function ServicesPage() {
           >
             <Link
               href="/"
-              className="text-slate-500 hover:text-teal-400 transition-colors"
+              className="text-slate-400 hover:text-teal-600 transition-colors"
             >
               Home
             </Link>
-            <span className="text-slate-700">/</span>
-            <span className="text-teal-400">Services</span>
+            <span className="text-slate-300">/</span>
+            <span className="text-teal-600">Services</span>
           </nav>
 
           <ScrollReveal>
-            <span className="inline-block text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold text-teal-400 mb-3">
+            <span className="inline-block text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold text-teal-600 mb-3">
               Our Services
             </span>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05]">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.05]">
               What We Fix
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="mt-5 text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
+            <p className="mt-5 text-base sm:text-lg text-slate-500 max-w-2xl leading-relaxed">
               From quick repairs to full remodels — every job gets the same
               level of care, craftsmanship, and attention to detail.
             </p>
@@ -88,8 +82,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── Editorial Alternating Layout ────────────────────── */}
-      <section className="bg-slate-950 py-20 md:py-28 lg:py-32">
+      {/* -- Editorial Alternating Layout ------------------------- */}
+      <section className="bg-white py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-24 md:space-y-32">
             {services.map((service, index) => {
@@ -113,7 +107,7 @@ export default function ServicesPage() {
                     >
                       {/* Image */}
                       <div
-                        className={`relative aspect-[4/3] overflow-hidden bg-slate-900 ${
+                        className={`relative aspect-[4/3] overflow-hidden bg-slate-100 rounded-xl shadow-lg ${
                           isEven ? "lg:order-2" : ""
                         }`}
                       >
@@ -125,8 +119,8 @@ export default function ServicesPage() {
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                         {/* Number overlay */}
-                        <div className="absolute bottom-0 left-0 bg-slate-950/90 px-5 py-3">
-                          <span className="font-display text-4xl md:text-5xl font-bold text-teal-500">
+                        <div className="absolute bottom-0 left-0 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-tr-xl">
+                          <span className="font-display text-4xl md:text-5xl font-bold text-teal-600">
                             {number}
                           </span>
                         </div>
@@ -134,13 +128,13 @@ export default function ServicesPage() {
 
                       {/* Content */}
                       <div className={isEven ? "lg:order-1" : ""}>
-                        <span className="inline-block text-xs font-display uppercase tracking-[0.2em] font-semibold text-teal-400 mb-3">
+                        <span className="inline-block text-xs font-display uppercase tracking-[0.2em] font-semibold text-teal-600 mb-3">
                           Service {number}
                         </span>
-                        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-5">
+                        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-5">
                           {service.title}
                         </h2>
-                        <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
+                        <p className="text-slate-500 text-base sm:text-lg leading-relaxed mb-8">
                           {detail}
                         </p>
                         <Button href="/contact" variant="outline" size="md">
@@ -157,8 +151,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── Pricing / Transparency ──────────────────────────── */}
-      <section className="bg-slate-900 py-20 md:py-28">
+      {/* -- Pricing / Transparency ------------------------------- */}
+      <section className="bg-slate-50 py-20 md:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <SectionHeader
@@ -166,6 +160,7 @@ export default function ServicesPage() {
               title="Honest Pricing — No Hidden Fees"
               description="We quote what we charge, and we charge what we quote. No surprise line items, no inflated materials markup, no bait-and-switch. Just straightforward pricing for honest work."
               align="center"
+              light
             />
           </ScrollReveal>
 
@@ -187,13 +182,13 @@ export default function ServicesPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="p-6 border border-slate-800 bg-slate-950/50"
+                  className="p-6 border border-slate-200 bg-white rounded-xl shadow-sm"
                 >
                   <CheckCircle2 className="w-8 h-8 text-teal-500 mb-4 mx-auto" />
-                  <h3 className="font-display text-lg font-bold text-white mb-2">
+                  <h3 className="font-display text-lg font-bold text-slate-900 mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -203,7 +198,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── CTA ─────────────────────────────────────────────── */}
+      {/* -- CTA -------------------------------------------------- */}
       <section className="relative overflow-hidden" aria-label="Call to action">
         <div
           className="bg-teal-500 py-16 md:py-20 lg:py-24"
@@ -250,11 +245,11 @@ export default function ServicesPage() {
         </div>
 
         <div
-          className="absolute top-0 left-0 right-0 h-[8%] bg-slate-950"
+          className="absolute top-0 left-0 right-0 h-[8%] bg-slate-50"
           aria-hidden="true"
         />
         <div
-          className="absolute bottom-0 left-0 right-0 h-[8%] bg-slate-950"
+          className="absolute bottom-0 left-0 right-0 h-[8%] bg-slate-900"
           aria-hidden="true"
         />
       </section>

@@ -36,7 +36,7 @@ export default function SectionHeader({
         <span
           className={cn(
             "inline-block text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold mb-3 md:mb-4",
-            "text-teal-400"
+            light ? "text-teal-600" : "text-teal-400"
           )}
         >
           {label}

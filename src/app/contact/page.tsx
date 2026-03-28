@@ -114,13 +114,8 @@ const trustItems = [
 export default function ContactPage() {
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
-      <section className="relative bg-slate-900 pt-32 pb-20 md:pt-40 md:pb-28">
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-slate-950/60 to-slate-900"
-          aria-hidden="true"
-        />
-
+      {/* -- Hero ------------------------------------------------- */}
+      <section className="relative bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <nav
@@ -129,28 +124,28 @@ export default function ContactPage() {
           >
             <Link
               href="/"
-              className="text-slate-500 hover:text-teal-400 transition-colors"
+              className="text-slate-400 hover:text-teal-600 transition-colors"
             >
               Home
             </Link>
-            <span className="text-slate-700">/</span>
-            <span className="text-teal-400">Contact</span>
+            <span className="text-slate-300">/</span>
+            <span className="text-teal-600">Contact</span>
           </nav>
 
           <ScrollReveal>
-            <span className="inline-block text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold text-teal-400 mb-3">
+            <span className="inline-block text-xs sm:text-sm font-display uppercase tracking-[0.2em] font-semibold text-teal-600 mb-3">
               Get In Touch
             </span>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05]">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.05]">
               Let&rsquo;s Talk
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="mt-5 text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
+            <p className="mt-5 text-base sm:text-lg text-slate-500 max-w-2xl leading-relaxed">
               Ready for a free estimate? Have a question about a repair? Reach
               out any way you like &mdash; we&rsquo;ll get back to you fast.
             </p>
@@ -158,14 +153,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Contact Info + Form ─────────────────────────────── */}
-      <section className="bg-slate-950 py-20 md:py-28 lg:py-32">
+      {/* -- Contact Info + Form ---------------------------------- */}
+      <section className="bg-white py-20 md:py-28 lg:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             {/* Left column — Contact cards */}
             <div className="lg:col-span-5 space-y-4">
               <ScrollReveal>
-                <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-6">
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-6">
                   Contact Info
                 </h2>
               </ScrollReveal>
@@ -173,18 +168,18 @@ export default function ContactPage() {
               {contactCards.map((card, i) => {
                 const Icon = card.icon;
                 const inner = (
-                  <div className="flex items-start gap-4 p-5 bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
-                    <div className="shrink-0 w-10 h-10 bg-teal-500/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-teal-400" />
+                  <div className="flex items-start gap-4 p-5 bg-slate-50 border border-slate-200 hover:border-teal-300 transition-colors rounded-xl">
+                    <div className="shrink-0 w-10 h-10 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-lg">
+                      <Icon className="w-5 h-5 text-teal-600" />
                     </div>
                     <div className="min-w-0">
-                      <span className="block text-xs font-display uppercase tracking-wider text-slate-500 mb-0.5">
+                      <span className="block text-xs font-display uppercase tracking-wider text-slate-400 mb-0.5">
                         {card.label}
                       </span>
-                      <span className="block font-display text-sm md:text-base font-semibold text-white truncate">
+                      <span className="block font-display text-sm md:text-base font-semibold text-slate-900 truncate">
                         {card.value}
                       </span>
-                      <span className="block text-xs text-slate-500 mt-0.5">
+                      <span className="block text-xs text-slate-400 mt-0.5">
                         {card.description}
                       </span>
                     </div>
@@ -232,8 +227,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── What Happens Next ───────────────────────────────── */}
-      <section className="bg-slate-900 py-20 md:py-28">
+      {/* -- What Happens Next ------------------------------------ */}
+      <section className="bg-slate-50 py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -241,6 +236,7 @@ export default function ContactPage() {
               title="What Happens Next"
               description="Three simple steps from your first call to a finished job."
               align="center"
+              light
             />
           </ScrollReveal>
 
@@ -251,17 +247,17 @@ export default function ContactPage() {
                 <ScrollReveal key={step.number} delay={i * 0.1}>
                   <div className="relative text-center p-6">
                     {/* Step number */}
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 font-display text-7xl font-bold text-slate-800/40 select-none">
+                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 font-display text-7xl font-bold text-slate-200/60 select-none">
                       {step.number}
                     </span>
                     <div className="relative">
-                      <div className="w-14 h-14 bg-teal-500/10 flex items-center justify-center mx-auto mb-5">
-                        <Icon className="w-7 h-7 text-teal-400" />
+                      <div className="w-14 h-14 bg-teal-50 border border-teal-200 flex items-center justify-center mx-auto mb-5 rounded-xl">
+                        <Icon className="w-7 h-7 text-teal-600" />
                       </div>
-                      <h3 className="font-display text-lg font-bold text-white mb-2">
+                      <h3 className="font-display text-lg font-bold text-slate-900 mb-2">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-slate-400 leading-relaxed">
+                      <p className="text-sm text-slate-500 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -273,8 +269,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Trust Section ───────────────────────────────────── */}
-      <section className="bg-slate-950 py-20 md:py-28">
+      {/* -- Trust Section ---------------------------------------- */}
+      <section className="bg-white py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -282,6 +278,7 @@ export default function ContactPage() {
               title="Built on Trust"
               description="We're not a big franchise. We're a family business that stakes our reputation on every single job."
               align="center"
+              light
             />
           </ScrollReveal>
 
@@ -290,14 +287,14 @@ export default function ContactPage() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={item.title} delay={i * 0.08}>
-                  <div className="text-center p-6 border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-colors">
-                    <div className="w-12 h-12 bg-teal-500/10 flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-teal-400" />
+                  <div className="text-center p-6 border border-slate-200 bg-slate-50 hover:border-teal-300 transition-colors rounded-xl">
+                    <div className="w-12 h-12 bg-teal-50 border border-teal-200 flex items-center justify-center mx-auto mb-4 rounded-xl">
+                      <Icon className="w-6 h-6 text-teal-600" />
                     </div>
-                    <h3 className="font-display text-base font-bold text-white mb-1.5">
+                    <h3 className="font-display text-base font-bold text-slate-900 mb-1.5">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-slate-500 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

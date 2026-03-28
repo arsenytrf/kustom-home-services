@@ -68,7 +68,7 @@ function StatCounter({
           stat.value
         )}
       </span>
-      <span className="font-display text-xs uppercase tracking-[0.2em] text-teal-400 font-medium">
+      <span className="font-display text-xs uppercase tracking-[0.2em] text-teal-300 font-medium">
         {stat.label}
       </span>
     </div>
@@ -106,7 +106,7 @@ export default function StatsStrip() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-slate-900 overflow-hidden"
+      className="relative bg-teal-900 overflow-hidden"
       aria-label="Company statistics"
     >
       {/* Background image at low opacity */}
@@ -119,10 +119,10 @@ export default function StatsStrip() {
       />
 
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-slate-900/80" aria-hidden="true" />
+      <div className="absolute inset-0 bg-teal-900/80" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-700/50">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-teal-700/50">
           {stats.map((stat) => (
             <StatCounter key={stat.label} stat={stat} isVisible={isVisible} />
           ))}

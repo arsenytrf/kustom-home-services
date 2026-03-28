@@ -82,17 +82,17 @@ export default function HomeHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen bg-slate-950 overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-white via-slate-50 to-teal-50/30 overflow-hidden"
     >
       {/* Gradient mesh background */}
       <div className="absolute inset-0 gradient-mesh" aria-hidden="true" />
 
       {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            "linear-gradient(rgba(15,23,42,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.08) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
         aria-hidden="true"
@@ -105,8 +105,8 @@ export default function HomeHero() {
           <div>
             {/* Label */}
             <div data-hero-label className="mb-6">
-              <span className="inline-flex items-center gap-2 text-warm-400 font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
-                <span className="w-8 h-px bg-warm-400" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2 text-teal-600 font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
+                <span className="w-8 h-px bg-teal-500" aria-hidden="true" />
                 Family-Owned Handyman — Okeechobee, FL
               </span>
             </div>
@@ -117,7 +117,7 @@ export default function HomeHero() {
                 <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-stroke leading-[0.95]">
                   YOUR HOME.
                 </span>
-                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[0.95] mt-1">
+                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-slate-900 leading-[0.95] mt-1">
                   OUR PRIORITY.
                 </span>
               </h1>
@@ -126,7 +126,7 @@ export default function HomeHero() {
             {/* Subtitle */}
             <p
               data-hero-subtitle
-              className="text-slate-400 text-base sm:text-lg max-w-lg leading-relaxed mb-8"
+              className="text-slate-500 text-base sm:text-lg max-w-lg leading-relaxed mb-8"
             >
               Honest work and quality results for every job, big or small. From
               plumbing and ceiling fans to full bathroom remodels — we show up on
@@ -154,7 +154,7 @@ export default function HomeHero() {
             {/* Trust strip */}
             <div
               data-hero-trust
-              className="flex flex-wrap items-center gap-5 text-xs text-slate-500"
+              className="flex flex-wrap items-center gap-5 text-xs text-slate-400"
             >
               <div className="flex items-center gap-1.5">
                 <Star className="w-4 h-4 text-warm-400 fill-warm-400" />
@@ -179,7 +179,7 @@ export default function HomeHero() {
             <div className="relative w-full max-w-lg lg:max-w-none">
               {/* Teal glow behind the truck */}
               <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-teal-500/10 rounded-full blur-3xl"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-teal-500/8 rounded-full blur-3xl"
                 aria-hidden="true"
               />
               <Image

@@ -42,7 +42,7 @@ export default function ParallaxBreak() {
 
       {/* Dark overlay 50-60% */}
       <div
-        className="absolute inset-0 bg-slate-950/55"
+        className="absolute inset-0 bg-teal-950/60"
         aria-hidden="true"
       />
 

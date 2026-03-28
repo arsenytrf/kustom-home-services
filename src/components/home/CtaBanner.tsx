@@ -53,10 +53,10 @@ export default function CtaBanner() {
         </div>
       </div>
 
-      {/* Top spacer to account for clip path */}
-      <div className="absolute top-0 left-0 right-0 h-[8%] bg-slate-950" aria-hidden="true" />
-      {/* Bottom spacer */}
-      <div className="absolute bottom-0 left-0 right-0 h-[8%] bg-slate-950" aria-hidden="true" />
+      {/* Top spacer to account for clip path — matches ServiceAreaMap teal bg */}
+      <div className="absolute top-0 left-0 right-0 h-[8%] bg-teal-900" aria-hidden="true" />
+      {/* Bottom spacer — matches footer dark or next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-[8%] bg-slate-900" aria-hidden="true" />
     </section>
   );
 }

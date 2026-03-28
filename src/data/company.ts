@@ -24,7 +24,7 @@ export const company = {
     "Family-owned handyman business providing reliable repairs, maintenance, and home improvements across Florida.",
   formAction: "https://formspree.io/f/placeholder",
   social: {
-    facebook: "https://facebook.com/KustomHomeServicesLLC",
+    facebook: "https://www.facebook.com/share/17PgsQnG3J/?mibextid=wwXIfr",
   },
   hours: {
     weekday: "Mon–Fri: 8:00 AM – 6:00 PM",

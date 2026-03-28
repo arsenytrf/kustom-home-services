@@ -12,14 +12,14 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 /* Shared input classes */
 const inputBase = cn(
-  "w-full bg-slate-800/60 border border-slate-700/50 text-white px-4 py-3 text-sm",
-  "rounded-none min-h-[46px] [-webkit-appearance:none]",
-  "focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/50",
-  "transition-colors placeholder:text-slate-600"
+  "w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 text-sm",
+  "rounded-lg min-h-[46px] [-webkit-appearance:none]",
+  "focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20",
+  "transition-colors placeholder:text-slate-400"
 );
 
 const labelBase =
-  "block text-xs font-display uppercase tracking-wider text-slate-400 mb-1.5";
+  "block text-xs font-display uppercase tracking-wider text-slate-500 mb-1.5";
 
 export default function QuoteForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -55,24 +55,24 @@ export default function QuoteForm() {
     }
   }
 
-  /* ── Success State ────────────────────────────────────── */
+  /* -- Success State ------------------------------------------ */
   if (status === "success") {
     return (
-      <div className="bg-slate-900 border border-slate-800 p-8 md:p-10">
+      <div className="bg-white border border-slate-200 shadow-lg p-8 md:p-10 rounded-xl">
         <div className="text-center py-8">
-          <div className="w-16 h-16 rounded-full bg-teal-500/20 flex items-center justify-center mx-auto mb-4">
-            <BadgeCheck className="w-8 h-8 text-teal-400" />
+          <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center mx-auto mb-4">
+            <BadgeCheck className="w-8 h-8 text-teal-500" />
           </div>
-          <h3 className="font-display text-2xl font-bold text-white mb-2">
+          <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">
             Request Received
           </h3>
-          <p className="text-slate-400 max-w-sm mx-auto">
+          <p className="text-slate-500 max-w-sm mx-auto">
             We&rsquo;ll get back to you within 24 hours with an honest quote. No
             surprises, no hidden fees.
           </p>
           <button
             onClick={() => setStatus("idle")}
-            className="mt-6 text-teal-400 hover:text-teal-300 font-display text-sm uppercase tracking-wider transition-colors cursor-pointer"
+            className="mt-6 text-teal-600 hover:text-teal-500 font-display text-sm uppercase tracking-wider transition-colors cursor-pointer"
           >
             Submit Another Request
           </button>
@@ -81,20 +81,20 @@ export default function QuoteForm() {
     );
   }
 
-  /* ── Form ─────────────────────────────────────────────── */
+  /* -- Form --------------------------------------------------- */
   return (
-    <div className="bg-slate-900 border border-slate-800 p-6 md:p-8 lg:p-10">
-      <h3 className="font-display text-xl md:text-2xl font-bold text-white mb-1">
+    <div className="bg-white border border-slate-200 shadow-lg p-6 md:p-8 lg:p-10 rounded-xl">
+      <h3 className="font-display text-xl md:text-2xl font-bold text-slate-900 mb-1">
         Request a Free Quote
       </h3>
-      <p className="text-slate-400 text-sm mb-6">
+      <p className="text-slate-500 text-sm mb-6">
         Tell us what you need &mdash; we&rsquo;ll get back to you within 24
         hours.
       </p>
 
       {/* Error banner */}
       {status === "error" && (
-        <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 flex items-start gap-2 text-red-400 text-sm">
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 flex items-start gap-2 text-red-600 text-sm rounded-lg">
           <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
           <span>
             Something went wrong. Please try again or call us at{" "}
@@ -179,7 +179,7 @@ export default function QuoteForm() {
             type="date"
             id="quote-date"
             name="preferredDate"
-            className={cn(inputBase, "[color-scheme:dark]")}
+            className={cn(inputBase, "[color-scheme:light]")}
           />
         </div>
 
@@ -282,17 +282,17 @@ export default function QuoteForm() {
           type="submit"
           disabled={status === "submitting"}
           className={cn(
-            "w-full bg-teal-500 text-slate-950 font-display uppercase tracking-wider font-bold",
+            "w-full bg-teal-500 text-white font-display uppercase tracking-wider font-bold",
             "py-4 text-sm rounded-full transition-all duration-300",
-            "hover:bg-teal-400 active:bg-teal-600",
+            "hover:bg-teal-600 active:bg-teal-700",
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500",
             "disabled:opacity-60 disabled:pointer-events-none",
-            "cursor-pointer"
+            "cursor-pointer shadow-md shadow-teal-500/20"
           )}
         >
           {status === "submitting" ? (
             <span className="flex items-center justify-center gap-2">
-              <span className="w-4 h-4 border-2 border-slate-950/30 border-t-slate-950 rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               Sending...
             </span>
           ) : (

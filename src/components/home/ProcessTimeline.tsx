@@ -99,7 +99,7 @@ export default function ProcessTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="bg-slate-950 py-20 md:py-28 lg:py-32"
+      className="bg-slate-50 py-20 md:py-28 lg:py-32"
       aria-labelledby="process-heading"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,13 +107,14 @@ export default function ProcessTimeline() {
           label="How It Works"
           title="4 Simple Steps"
           description="From your first call to a finished job, we keep it easy."
+          light
         />
 
         {/* Timeline */}
         <div className="relative mt-12 md:mt-16">
           {/* Vertical line */}
           <div
-            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-800"
+            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-200"
             aria-hidden="true"
           >
             <div
@@ -135,10 +136,10 @@ export default function ProcessTimeline() {
                 {/* Dot */}
                 <div
                   data-timeline-dot
-                  className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center bg-slate-950 border-2 border-teal-500 z-10"
+                  className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center bg-white border-2 border-teal-500 z-10 rounded-full shadow-md"
                   aria-hidden="true"
                 >
-                  <step.icon className="w-5 h-5 text-teal-400" />
+                  <step.icon className="w-5 h-5 text-teal-600" />
                 </div>
 
                 {/* Content card */}
@@ -147,13 +148,13 @@ export default function ProcessTimeline() {
                     i % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
                   }`}
                 >
-                  <span className="font-display text-xs uppercase tracking-[0.2em] text-teal-500 font-semibold">
+                  <span className="font-display text-xs uppercase tracking-[0.2em] text-teal-600 font-semibold">
                     Step {step.number}
                   </span>
-                  <h3 className="font-display text-xl md:text-2xl font-bold text-white mt-1 mb-2">
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-slate-900 mt-1 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-500 leading-relaxed">
                     {step.description}
                   </p>
                 </div>

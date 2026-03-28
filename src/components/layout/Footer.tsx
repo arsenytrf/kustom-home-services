@@ -6,7 +6,7 @@ import { navLinks } from "@/data/navigation";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-white/5 relative">
+    <footer className="bg-slate-900 text-white relative">
       {/* Teal top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
 
@@ -133,7 +133,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
             &copy; {new Date().getFullYear()} {company.name}. All rights
             reserved.

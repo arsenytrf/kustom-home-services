@@ -42,7 +42,7 @@ const galleryItems: GalleryItem[] = [
 export default function ProjectGallery() {
   return (
     <section
-      className="bg-slate-950 py-20 md:py-28 lg:py-32"
+      className="bg-white py-20 md:py-28 lg:py-32"
       aria-labelledby="gallery-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,6 +51,7 @@ export default function ProjectGallery() {
             label="Our Work"
             title="Recent Projects"
             description="Real jobs for real homeowners. No stock photos, no filler — just work we're proud of."
+            light
           />
         </ScrollReveal>
 
@@ -66,7 +67,7 @@ export default function ProjectGallery() {
                   : ""
               }
             >
-              <div className="relative group overflow-hidden h-full min-h-[240px] sm:min-h-[280px]">
+              <div className="relative group overflow-hidden h-full min-h-[240px] sm:min-h-[280px] rounded-xl shadow-md">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -80,19 +81,19 @@ export default function ProjectGallery() {
                 />
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Label on hover */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <span className="inline-block font-display text-xs uppercase tracking-[0.15em] text-teal-400 font-semibold mb-1">
+                  <span className="inline-block font-display text-xs uppercase tracking-[0.15em] text-teal-300 font-semibold mb-1">
                     {item.label}
                   </span>
-                  <div className="w-8 h-0.5 bg-teal-500" aria-hidden="true" />
+                  <div className="w-8 h-0.5 bg-teal-400" aria-hidden="true" />
                 </div>
 
                 {/* Persistent bottom gradient for contrast */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-slate-950/40 to-transparent group-hover:from-transparent transition-all duration-500"
+                  className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-slate-900/30 to-transparent group-hover:from-transparent transition-all duration-500"
                   aria-hidden="true"
                 />
               </div>

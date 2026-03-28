@@ -23,14 +23,14 @@ type ButtonAsLink = ButtonBaseProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  teal: "bg-teal-500 text-slate-950 hover:bg-teal-400 active:bg-teal-600 shadow-lg shadow-teal-500/20",
+  teal: "bg-teal-500 text-white hover:bg-teal-600 active:bg-teal-700 shadow-lg shadow-teal-500/20",
   outline:
-    "border-2 border-teal-500 text-teal-400 hover:bg-teal-500 hover:text-slate-950 active:bg-teal-600",
-  dark: "bg-slate-800 text-white hover:bg-slate-700 active:bg-slate-900 border border-slate-700",
+    "border-2 border-teal-500 text-teal-600 hover:bg-teal-500 hover:text-white active:bg-teal-600",
+  dark: "bg-slate-900 text-white hover:bg-slate-800 active:bg-slate-950 border border-slate-700",
   white:
-    "bg-white text-slate-950 hover:bg-slate-100 active:bg-slate-200 shadow-lg shadow-white/10",
+    "bg-white text-slate-900 hover:bg-slate-100 active:bg-slate-200 shadow-lg shadow-slate-200/50",
   ghost:
-    "text-slate-300 hover:text-teal-400 hover:bg-white/5 active:bg-white/10",
+    "text-slate-600 hover:text-teal-600 hover:bg-slate-100 active:bg-slate-200",
 };
 
 const sizeStyles: Record<"sm" | "md" | "lg", string> = {

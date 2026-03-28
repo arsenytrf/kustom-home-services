@@ -3,12 +3,12 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Menu } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { company } from "@/data/company";
+import { company, basePath } from "@/data/company";
 import { navLinks, ctaLink } from "@/data/navigation";
 import MobileDrawer from "./MobileDrawer";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -54,29 +54,29 @@ export default function Navbar() {
         {/* Top info bar — hidden on mobile */}
         <div
           className={cn(
-            "hidden lg:block bg-slate-900 border-b border-white/5 transition-all duration-300 overflow-hidden",
+            "hidden lg:block bg-slate-50 border-b border-slate-200 transition-all duration-300 overflow-hidden",
             hideTopBar ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
           )}
         >
-          <div className="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between text-sm text-slate-400">
+          <div className="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between text-sm text-slate-500">
             <div className="flex items-center gap-6">
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="flex items-center gap-2 hover:text-teal-400 transition-colors"
+                className="flex items-center gap-2 hover:text-teal-600 transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
                 {company.phone}
               </a>
               <a
                 href={`mailto:${company.email}`}
-                className="flex items-center gap-2 hover:text-teal-400 transition-colors"
+                className="flex items-center gap-2 hover:text-teal-600 transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />
                 {company.email}
               </a>
             </div>
             <div className="flex items-center gap-6">
-              <span className="text-teal-400 font-medium">
+              <span className="text-teal-600 font-medium">
                 Family-Owned & Operated
               </span>
               <span className="flex items-center gap-2">
@@ -88,15 +88,22 @@ export default function Navbar() {
         </div>
 
         {/* Main navigation */}
-        <nav className="bg-slate-950/60 backdrop-blur-xl border-b border-white/5">
+        <nav className="bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-sm">
           <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-1 group">
-              <span className="font-display text-xl font-bold tracking-tight">
-                <span className="text-teal-400 group-hover:text-teal-300 transition-colors">
+            <Link href="/" className="flex items-center gap-2 group">
+              <Image
+                src={`${basePath}/images/logo.jpg`}
+                alt="Kustom Home Services LLC"
+                width={40}
+                height={40}
+                className="rounded-full group-hover:scale-105 transition-transform"
+              />
+              <span className="font-display text-lg font-bold tracking-tight hidden sm:inline">
+                <span className="text-teal-600 group-hover:text-teal-500 transition-colors">
                   KUSTOM
                 </span>{" "}
-                <span className="text-white">HOME SERVICES</span>
+                <span className="text-slate-900">HOME SERVICES</span>
               </span>
             </Link>
 
@@ -111,34 +118,31 @@ export default function Navbar() {
                     className={cn(
                       "relative text-sm font-medium tracking-wide uppercase transition-colors",
                       isActive
-                        ? "text-teal-400"
-                        : "text-slate-300 hover:text-white"
+                        ? "text-teal-600"
+                        : "text-slate-600 hover:text-slate-900"
                     )}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-400" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-teal-500" />
                     )}
                   </Link>
                 );
               })}
 
-              <ThemeToggle />
-
               <Link
                 href={ctaLink.href}
-                className="ml-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 text-sm font-bold uppercase tracking-wide rounded-full transition-colors"
+                className="ml-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white text-sm font-bold uppercase tracking-wide rounded-full transition-colors shadow-md shadow-teal-500/20"
               >
                 GET FREE ESTIMATE
               </Link>
             </div>
 
-            {/* Mobile: toggle + hamburger */}
+            {/* Mobile: hamburger */}
             <div className="lg:hidden flex items-center gap-2">
-              <ThemeToggle />
               <button
                 onClick={() => setDrawerOpen(true)}
-                className="p-2 text-slate-300 hover:text-white transition-colors"
+                className="p-2 text-slate-600 hover:text-slate-900 transition-colors"
                 aria-label="Open menu"
               >
                 <Menu className="h-6 w-6" />

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -16,7 +17,7 @@ import {
   House,
   ArrowRight,
 } from "lucide-react";
-import { company } from "@/data/company";
+import { company, basePath } from "@/data/company";
 import { navLinks, ctaLink } from "@/data/navigation";
 
 const serviceIcons = [
@@ -106,7 +107,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] bg-slate-900/30 backdrop-blur-sm"
             variants={backdropVariants}
             initial="hidden"
             animate="visible"
@@ -114,9 +115,9 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             onClick={onClose}
           />
 
-          {/* Panel */}
+          {/* Panel — white */}
           <motion.div
-            className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-md bg-slate-950 overflow-y-auto"
+            className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-md bg-white shadow-2xl overflow-y-auto"
             variants={panelVariants}
             initial="hidden"
             animate="visible"
@@ -125,12 +126,12 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5">
               <span className="font-display text-lg font-bold tracking-tight">
-                <span className="text-teal-400">KUSTOM</span>{" "}
-                <span className="text-white">HOME SERVICES</span>
+                <span className="text-teal-600">KUSTOM</span>{" "}
+                <span className="text-slate-900">HOME SERVICES</span>
               </span>
               <button
                 onClick={onClose}
-                className="p-2 text-slate-400 hover:text-white transition-colors"
+                className="p-2 text-slate-400 hover:text-slate-900 transition-colors"
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" />
@@ -158,7 +159,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                     <span className="text-teal-500/50 text-sm font-body font-medium">
                       {link.number}
                     </span>
-                    <span className="font-display text-4xl font-bold text-white group-hover:text-teal-400 transition-colors uppercase tracking-tight">
+                    <span className="font-display text-4xl font-bold text-slate-900 group-hover:text-teal-600 transition-colors uppercase tracking-tight">
                       {link.label}
                     </span>
                   </Link>
@@ -167,21 +168,21 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </div>
 
             {/* Divider */}
-            <div className="mx-6 h-px bg-white/5" />
+            <div className="mx-6 h-px bg-slate-200" />
 
             {/* Quick services grid */}
             <div className="px-6 py-6">
-              <p className="text-xs font-medium uppercase tracking-widest text-slate-500 mb-4">
+              <p className="text-xs font-medium uppercase tracking-widest text-slate-400 mb-4">
                 Our Services
               </p>
               <div className="grid grid-cols-3 gap-3">
                 {serviceIcons.map(({ label, icon: Icon }) => (
                   <div
                     key={label}
-                    className="flex flex-col items-center gap-2 py-3 px-2 rounded-lg bg-white/[0.03] border border-white/5"
+                    className="flex flex-col items-center gap-2 py-3 px-2 rounded-lg bg-slate-50 border border-slate-200"
                   >
-                    <Icon className="h-5 w-5 text-teal-400" />
-                    <span className="text-xs text-slate-400 text-center">
+                    <Icon className="h-5 w-5 text-teal-500" />
+                    <span className="text-xs text-slate-500 text-center">
                       {label}
                     </span>
                   </div>
@@ -190,34 +191,34 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </div>
 
             {/* Divider */}
-            <div className="mx-6 h-px bg-white/5" />
+            <div className="mx-6 h-px bg-slate-200" />
 
             {/* Contact info */}
             <div className="px-6 py-6 space-y-3">
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="flex items-center gap-3 text-slate-300 hover:text-teal-400 transition-colors"
+                className="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors"
               >
                 <Phone className="h-4 w-4 text-teal-500" />
                 <span className="text-sm">{company.phone}</span>
               </a>
               <a
                 href={`mailto:${company.email}`}
-                className="flex items-center gap-3 text-slate-300 hover:text-teal-400 transition-colors"
+                className="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors"
               >
                 <Mail className="h-4 w-4 text-teal-500" />
                 <span className="text-sm">{company.email}</span>
               </a>
-              <div className="flex items-center gap-3 text-slate-400">
+              <div className="flex items-center gap-3 text-slate-500">
                 <MapPin className="h-4 w-4 text-teal-500" />
                 <span className="text-sm">{company.serviceArea}</span>
               </div>
             </div>
 
             {/* Family badge */}
-            <div className="mx-6 flex items-center gap-2 px-4 py-3 rounded-lg bg-teal-500/5 border border-teal-500/10">
-              <div className="h-2 w-2 rounded-full bg-teal-400" />
-              <span className="text-xs text-teal-400 font-medium">
+            <div className="mx-6 flex items-center gap-2 px-4 py-3 rounded-lg bg-teal-50 border border-teal-200">
+              <div className="h-2 w-2 rounded-full bg-teal-500" />
+              <span className="text-xs text-teal-700 font-medium">
                 Family-Owned & Operated Since {company.founded}
               </span>
             </div>
@@ -227,7 +228,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               <Link
                 href={ctaLink.href}
                 onClick={onClose}
-                className="relative flex items-center justify-center gap-2 w-full py-4 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm uppercase tracking-wide rounded-full overflow-hidden transition-colors group"
+                className="relative flex items-center justify-center gap-2 w-full py-4 bg-teal-500 hover:bg-teal-600 text-white font-bold text-sm uppercase tracking-wide rounded-full overflow-hidden transition-colors group shadow-lg shadow-teal-500/20"
               >
                 {/* Shimmer effect */}
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
