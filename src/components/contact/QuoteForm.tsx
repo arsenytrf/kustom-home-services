@@ -4,7 +4,7 @@ import { useState, useRef, type FormEvent } from "react";
 import { cn } from "@/lib/cn";
 import { company } from "@/data/company";
 import { services } from "@/data/services";
-import { BadgeCheck, AlertCircle } from "lucide-react";
+import { BadgeCheck, AlertCircle, Shield, Clock } from "lucide-react";
 
 const propertyOptions = ["House", "Apartment", "Condo", "Commercial", "Other"];
 
@@ -58,7 +58,13 @@ export default function QuoteForm() {
   /* -- Success State ------------------------------------------ */
   if (status === "success") {
     return (
-      <div className="bg-white border border-slate-200 shadow-lg p-8 md:p-10 rounded-xl">
+      <div className="relative bg-white border border-slate-200 shadow-xl shadow-slate-200/50 p-8 md:p-10 rounded-xl">
+        {/* Corner brackets */}
+        <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-teal-500 rounded-tl-xl" />
+        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-teal-500 rounded-tr-xl" />
+        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-teal-500 rounded-bl-xl" />
+        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-teal-500 rounded-br-xl" />
+
         <div className="text-center py-8">
           <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center mx-auto mb-4">
             <BadgeCheck className="w-8 h-8 text-teal-500" />
@@ -83,7 +89,13 @@ export default function QuoteForm() {
 
   /* -- Form --------------------------------------------------- */
   return (
-    <div className="bg-white border border-slate-200 shadow-lg p-6 md:p-8 lg:p-10 rounded-xl">
+    <div className="relative bg-white border border-slate-200 shadow-xl shadow-slate-200/50 p-6 md:p-8 lg:p-10 rounded-xl">
+      {/* Corner brackets */}
+      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-teal-500 rounded-tl-xl" />
+      <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-teal-500 rounded-tr-xl" />
+      <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-teal-500 rounded-bl-xl" />
+      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-teal-500 rounded-br-xl" />
+
       <h3 className="font-display text-xl md:text-2xl font-bold text-slate-900 mb-1">
         Request a Free Quote
       </h3>
@@ -197,7 +209,7 @@ export default function QuoteForm() {
           />
         </div>
 
-        {/* Row 3: Address */}
+        {/* Row 4: Address */}
         <div>
           <label htmlFor="quote-address" className={labelBase}>
             Your Address
@@ -212,7 +224,7 @@ export default function QuoteForm() {
           />
         </div>
 
-        {/* Row 4: First Name + Last Name */}
+        {/* Row 5: First Name + Last Name */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="quote-first-name" className={labelBase}>
@@ -245,7 +257,7 @@ export default function QuoteForm() {
           </div>
         </div>
 
-        {/* Row 5: Phone + Email */}
+        {/* Row 6: Phone + Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="quote-phone" className={labelBase}>
@@ -283,7 +295,7 @@ export default function QuoteForm() {
           disabled={status === "submitting"}
           className={cn(
             "w-full bg-teal-500 text-white font-display uppercase tracking-wider font-bold",
-            "py-4 text-sm rounded-full transition-all duration-300",
+            "py-4 text-sm rounded-lg transition-all duration-300",
             "hover:bg-teal-600 active:bg-teal-700",
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500",
             "disabled:opacity-60 disabled:pointer-events-none",
@@ -300,6 +312,22 @@ export default function QuoteForm() {
           )}
         </button>
       </form>
+
+      {/* Trust badges */}
+      <div className="flex items-center justify-center gap-6 mt-6 pt-5 border-t border-slate-200">
+        <div className="flex items-center gap-1.5 text-xs text-slate-400">
+          <Shield className="w-3.5 h-3.5 text-teal-500" />
+          <span>No Spam</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-xs text-slate-400">
+          <Clock className="w-3.5 h-3.5 text-teal-500" />
+          <span>24hr Response</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-xs text-slate-400">
+          <BadgeCheck className="w-3.5 h-3.5 text-teal-500" />
+          <span>Free Quote</span>
+        </div>
+      </div>
     </div>
   );
 }
