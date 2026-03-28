@@ -183,7 +183,7 @@ export default function HomeHero() {
                 aria-hidden="true"
               />
               <Image
-                src={`${basePath}/images/branded-truck.jpg`}
+                src={`${basePath}/images/branded-truck.png`}
                 alt="Kustom Home Services branded black Toyota Tacoma work truck"
                 width={700}
                 height={450}

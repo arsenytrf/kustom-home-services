@@ -8,6 +8,7 @@ import { cn } from "@/lib/cn";
 import { company } from "@/data/company";
 import { navLinks, ctaLink } from "@/data/navigation";
 import MobileDrawer from "./MobileDrawer";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -122,6 +123,8 @@ export default function Navbar() {
                 );
               })}
 
+              <ThemeToggle />
+
               <Link
                 href={ctaLink.href}
                 className="ml-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 text-sm font-bold uppercase tracking-wide rounded-full transition-colors"
@@ -130,14 +133,17 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setDrawerOpen(true)}
-              className="lg:hidden p-2 text-slate-300 hover:text-white transition-colors"
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
+            {/* Mobile: toggle + hamburger */}
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setDrawerOpen(true)}
+                className="p-2 text-slate-300 hover:text-white transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </nav>
       </header>
