@@ -1,3 +1,3 @@
-:HL["/kustom-home-services/_next/static/chunks/0q6878h.syeu~.css","style"]
+:HL["/kustom-home-services/_next/static/chunks/0em8b2i9xait5.css","style"]
 :HL["https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=cabinet-grotesk@100,200,300,400,500,700,800,900&display=swap","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"IwtR-McBsmM1xN_dbGXDF"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"D3XzuzZ4ArS0bhKiZwjWZ"}
