@@ -75,7 +75,7 @@ export default function HeroForm() {
           </p>
           <button
             onClick={() => setStatus("idle")}
-            className="mt-6 text-teal-600 hover:text-teal-500 font-display text-sm uppercase tracking-wider transition-colors"
+            className="mt-6 text-teal-600 hover:text-teal-500 font-display text-sm uppercase tracking-wider transition-colors duration-300"
           >
             Submit Another Request
           </button>
@@ -202,7 +202,7 @@ export default function HeroForm() {
               "w-full bg-slate-50 border border-slate-200 text-slate-900 px-4 py-3 text-sm rounded-lg",
               "min-h-[46px] [-webkit-appearance:none] [color-scheme:light]",
               "focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20",
-              "transition-colors"
+              "transition-colors duration-300"
             )}
           />
         </div>

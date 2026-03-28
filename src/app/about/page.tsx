@@ -9,10 +9,6 @@ import {
   Sparkles,
   HardHat,
   ArrowRight,
-  Star,
-  ShieldCheck,
-  Clock,
-  Users,
 } from "lucide-react";
 
 import { company, basePath } from "@/data/company";
@@ -88,7 +84,7 @@ export default function AboutPage() {
               >
                 <Link
                   href="/"
-                  className="text-slate-400 hover:text-teal-600 transition-colors"
+                  className="text-slate-400 hover:text-teal-600 transition-colors duration-300"
                 >
                   Home
                 </Link>
@@ -161,27 +157,6 @@ export default function AboutPage() {
             </ScrollReveal>
           </div>
 
-          {/* Trust strip */}
-          <ScrollReveal delay={0.4}>
-            <div className="flex flex-wrap items-center gap-5 text-xs text-slate-400 mt-10 pt-8 border-t border-slate-200">
-              <div className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-warm-400 fill-warm-400" />
-                <span>5-Star Rated</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-teal-500" />
-                <span>Licensed & Insured</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-teal-500" />
-                <span>Family-Owned</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-teal-500" />
-                <span>24hr Response</span>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -313,7 +288,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <SectionHeader
               label="What We Stand For"
-              title="Built Different"
+              title="Our Standards"
               description="These aren\u2019t just words on a page. They\u2019re how we run every job, every day."
               light
             />
@@ -401,7 +376,7 @@ export default function AboutPage() {
               Don&rsquo;t see your city? We likely still serve your area.{" "}
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="text-teal-300 hover:text-white underline underline-offset-2 transition-colors"
+                className="text-teal-300 hover:text-white underline underline-offset-2 transition-colors duration-300"
               >
                 Call to check
               </a>
@@ -429,14 +404,14 @@ export default function AboutPage() {
 
             <ScrollReveal delay={0.1}>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Ready to Meet Your Handyman?
+                Your Home Deserves Better.
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <p className="mt-4 md:mt-6 text-base sm:text-lg text-teal-900 max-w-xl mx-auto leading-relaxed">
-                No job too small. Call us now or request a free quote online
-                &mdash; we&rsquo;ll get back to you within 24 hours.
+                Real people. Real work. Real results. Reach out and see the
+                difference a family-owned business makes.
               </p>
             </ScrollReveal>
 

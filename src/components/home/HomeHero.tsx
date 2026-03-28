@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { Phone, Star, ShieldCheck, Clock } from "lucide-react";
+import { Phone } from "lucide-react";
 import { basePath, company } from "@/data/company";
 import Button from "@/components/shared/Button";
 import HeroForm from "@/components/home/HeroForm";
@@ -51,12 +51,6 @@ export default function HomeHero() {
             { opacity: 0, y: 20 },
             { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
             "-=0.3"
-          )
-          .fromTo(
-            "[data-hero-trust]",
-            { opacity: 0, y: 15 },
-            { opacity: 1, y: 0, duration: 0.5 },
-            "-=0.2"
           )
           .fromTo(
             "[data-hero-truck]",
@@ -152,24 +146,6 @@ export default function HomeHero() {
               </Button>
             </div>
 
-            {/* Trust strip */}
-            <div
-              data-hero-trust
-              className="flex flex-wrap items-center gap-4 sm:gap-5 text-xs text-slate-500"
-            >
-              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
-                <Star className="w-3.5 h-3.5 text-warm-400 fill-warm-400" />
-                <span className="font-medium">5-Star Rated</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
-                <ShieldCheck className="w-3.5 h-3.5 text-teal-500" />
-                <span className="font-medium">Licensed & Insured</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
-                <Clock className="w-3.5 h-3.5 text-teal-500" />
-                <span className="font-medium">24hr Response</span>
-              </div>
-            </div>
           </div>
 
           {/* Right side — truck image */}

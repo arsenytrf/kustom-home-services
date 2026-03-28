@@ -120,7 +120,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               </Link>
               <button
                 onClick={onClose}
-                className="p-2 text-slate-400 hover:text-slate-900 transition-colors"
+                className="p-2 text-slate-400 hover:text-slate-900 transition-colors duration-300"
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" />
@@ -160,14 +160,14 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             <div className="px-8 py-6 space-y-3">
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors"
+                className="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors duration-300"
               >
                 <Phone className="h-4 w-4 text-teal-500 shrink-0" />
                 <span className="text-sm">{company.phone}</span>
               </a>
               <a
                 href={`mailto:${company.email}`}
-                className="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors"
+                className="flex items-center gap-3 text-slate-600 hover:text-teal-600 transition-colors duration-300"
               >
                 <Mail className="h-4 w-4 text-teal-500 shrink-0" />
                 <span className="text-sm">{company.email}</span>

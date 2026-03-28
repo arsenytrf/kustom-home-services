@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: "Kustom Home Services LLC | Handyman — Okeechobee, FL",
   description:
     "Kustom Home Services LLC — trusted handyman in Okeechobee, FL. " +
-    "Drywall, painting, pressure washing, remodeling, flooring & more. " +
-    "Call (863) 261-3877 for a free estimate.",
+    "General repairs, plumbing, ceiling fans, insulation, bathroom remodels & more. " +
+    "Call (239) 502-5945 for a free estimate.",
 };
 
 export default function RootLayout({

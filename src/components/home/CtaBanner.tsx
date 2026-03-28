@@ -40,7 +40,7 @@ export default function CtaBanner() {
 
           <ScrollReveal delay={0.3}>
             <div className="flex flex-wrap items-center justify-center gap-3 mt-8 md:mt-10">
-              <Button variant="dark" size="lg" href="#estimate-form">
+              <Button variant="dark" size="lg" href="/contact">
                 Get Free Estimate
               </Button>
               <Button

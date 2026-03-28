@@ -45,7 +45,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-400 hover:text-teal-400 transition-colors"
+                      className="text-sm text-slate-400 hover:text-teal-400 transition-colors duration-300"
                     >
                       {link.label}
                     </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
                   <li key={service.slug}>
                     <Link
                       href="/services"
-                      className="text-sm text-slate-400 hover:text-teal-400 transition-colors"
+                      className="text-sm text-slate-400 hover:text-teal-400 transition-colors duration-300"
                     >
                       {service.title}
                     </Link>
@@ -76,14 +76,14 @@ export default function Footer() {
           <div className="flex flex-col gap-2.5">
             <a
               href={`tel:${company.phoneRaw}`}
-              className="flex items-center gap-2 text-sm text-slate-400 hover:text-teal-400 transition-colors"
+              className="flex items-center gap-2 text-sm text-slate-400 hover:text-teal-400 transition-colors duration-300"
             >
               <Phone className="h-3.5 w-3.5 text-teal-500" />
               {company.phone}
             </a>
             <a
               href={`mailto:${company.email}`}
-              className="flex items-center gap-2 text-sm text-slate-400 hover:text-teal-400 transition-colors"
+              className="flex items-center gap-2 text-sm text-slate-400 hover:text-teal-400 transition-colors duration-300"
             >
               <Mail className="h-3.5 w-3.5 text-teal-500" />
               {company.email}
@@ -126,7 +126,7 @@ export default function Footer() {
               href="https://ePageUSA.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-teal-400 transition-colors"
+              className="text-slate-400 hover:text-teal-400 transition-colors duration-300"
             >
               ePageUSA.com
             </a>

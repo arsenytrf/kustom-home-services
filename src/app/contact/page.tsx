@@ -14,7 +14,6 @@ import {
   ClipboardCheck,
   Wrench,
   ThumbsUp,
-  Star,
   ArrowRight,
 } from "lucide-react";
 
@@ -141,7 +140,7 @@ export default function ContactPage() {
             >
               <Link
                 href="/"
-                className="text-slate-400 hover:text-teal-600 transition-colors"
+                className="text-slate-400 hover:text-teal-600 transition-colors duration-300"
               >
                 Home
               </Link>
@@ -174,22 +173,6 @@ export default function ContactPage() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap items-center gap-5 text-xs text-slate-400">
-                <div className="flex items-center gap-1.5">
-                  <Star className="w-4 h-4 text-warm-400 fill-warm-400" />
-                  <span>5-Star Rated</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-teal-500" />
-                  <span>Licensed & Insured</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-teal-500" />
-                  <span>24hr Response</span>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -219,7 +202,7 @@ export default function ContactPage() {
                 const Icon = card.icon;
                 const inner = (
                   <div className="flex items-start gap-4 p-5 bg-white border border-slate-200 hover:border-teal-300 hover:shadow-lg hover:shadow-teal-500/10 transition-all duration-300 rounded-xl shadow-sm group">
-                    <div className="shrink-0 w-11 h-11 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-lg group-hover:bg-teal-100 transition-colors">
+                    <div className="shrink-0 w-11 h-11 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-lg group-hover:bg-teal-100 transition-colors duration-300">
                       <Icon className="w-5 h-5 text-teal-600" />
                     </div>
                     <div className="min-w-0">

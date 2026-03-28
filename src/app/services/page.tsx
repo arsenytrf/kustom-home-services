@@ -5,9 +5,8 @@ import {
   Phone,
   ArrowRight,
   CheckCircle2,
-  Star,
   ShieldCheck,
-  Clock,
+  Star,
 } from "lucide-react";
 
 import { company, basePath } from "@/data/company";
@@ -111,7 +110,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href="/"
-                  className="text-slate-400 hover:text-teal-600 transition-colors"
+                  className="text-slate-400 hover:text-teal-600 transition-colors duration-300"
                 >
                   Home
                 </Link>
@@ -183,27 +182,6 @@ export default function ServicesPage() {
             </ScrollReveal>
           </div>
 
-          {/* Trust strip below hero */}
-          <ScrollReveal delay={0.4}>
-            <div className="flex flex-wrap items-center gap-5 text-xs text-slate-400 mt-10 pt-8 border-t border-slate-200">
-              <div className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-warm-400 fill-warm-400" />
-                <span>5-Star Rated</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-teal-500" />
-                <span>Licensed & Insured</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-teal-500" />
-                <span>24hr Response</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-500" />
-                <span>Free Estimates</span>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -490,14 +468,14 @@ export default function ServicesPage() {
 
             <ScrollReveal delay={0.1}>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Ready to Get It Fixed?
+                Let&rsquo;s Get It Done.
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <p className="mt-4 md:mt-6 text-base sm:text-lg text-teal-900 max-w-xl mx-auto leading-relaxed">
-                No job too small. Call us now or request a free quote online
-                &mdash; we&rsquo;ll get back to you within 24 hours.
+                Pick a service, describe the job, and we&rsquo;ll have a
+                quote in your hands within 24 hours. No hassle, no pressure.
               </p>
             </ScrollReveal>
 

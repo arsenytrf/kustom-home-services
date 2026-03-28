@@ -62,14 +62,14 @@ export default function Navbar() {
             <div className="flex items-center gap-6">
               <a
                 href={`tel:${company.phoneRaw}`}
-                className="flex items-center gap-2 hover:text-teal-600 transition-colors"
+                className="flex items-center gap-2 hover:text-teal-600 transition-colors duration-300"
               >
                 <Phone className="h-3.5 w-3.5" />
                 {company.phone}
               </a>
               <a
                 href={`mailto:${company.email}`}
-                className="flex items-center gap-2 hover:text-teal-600 transition-colors"
+                className="flex items-center gap-2 hover:text-teal-600 transition-colors duration-300"
               >
                 <Mail className="h-3.5 w-3.5" />
                 {company.email}
@@ -88,7 +88,7 @@ export default function Navbar() {
         </div>
 
         {/* Main navigation */}
-        <nav className="bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-sm">
+        <nav className="bg-white/80 backdrop-blur-xl backdrop-saturate-150 border-b border-slate-200/80 shadow-sm transition-all duration-300">
           <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
@@ -97,10 +97,10 @@ export default function Navbar() {
                 alt="Kustom Home Services LLC"
                 width={40}
                 height={40}
-                className="rounded-full group-hover:scale-105 transition-transform"
+                className="rounded-full group-hover:scale-105 transition-transform duration-300"
               />
               <span className="font-display text-lg font-bold tracking-tight hidden sm:inline">
-                <span className="text-teal-600 group-hover:text-teal-500 transition-colors">
+                <span className="text-teal-600 group-hover:text-teal-500 transition-colors duration-300">
                   KUSTOM
                 </span>{" "}
                 <span className="text-slate-900">HOME SERVICES</span>
@@ -116,7 +116,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "relative text-sm font-medium tracking-wide uppercase transition-colors",
+                      "relative text-sm font-medium tracking-wide uppercase transition-colors duration-300",
                       isActive
                         ? "text-teal-600"
                         : "text-slate-600 hover:text-slate-900"
@@ -132,7 +132,7 @@ export default function Navbar() {
 
               <Link
                 href={ctaLink.href}
-                className="ml-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white text-sm font-bold uppercase tracking-wide rounded-full transition-colors shadow-md shadow-teal-500/20"
+                className="ml-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white text-sm font-bold uppercase tracking-wide rounded-full transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30"
               >
                 GET FREE ESTIMATE
               </Link>
@@ -142,7 +142,7 @@ export default function Navbar() {
             <div className="lg:hidden flex items-center gap-2">
               <button
                 onClick={() => setDrawerOpen(true)}
-                className="p-2 text-slate-600 hover:text-slate-900 transition-colors"
+                className="p-2 text-slate-600 hover:text-slate-900 transition-colors duration-300"
                 aria-label="Open menu"
               >
                 <Menu className="h-6 w-6" />

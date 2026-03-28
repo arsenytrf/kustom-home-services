@@ -41,7 +41,7 @@ export default function ServiceAreaMap() {
             Don&rsquo;t see your city? We likely still serve your area.{" "}
             <a
               href={`tel:${company.phoneRaw}`}
-              className="text-teal-300 hover:text-white underline underline-offset-2 transition-colors"
+              className="text-teal-300 hover:text-white underline underline-offset-2 transition-colors duration-300"
             >
               Call to check
             </a>

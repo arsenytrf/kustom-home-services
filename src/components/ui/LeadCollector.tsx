@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { X, Send, Wrench } from "lucide-react";
-import { company } from "@/data/company";
+import Image from "next/image";
+import { X, Send, MessageCircle, RotateCcw } from "lucide-react";
+import { company, basePath } from "@/data/company";
 
 /* ── Types ──────────────────────────────────────────────────── */
 
@@ -68,7 +69,6 @@ export default function LeadCollector() {
   const prefersReduced = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [typing, setTyping] = useState(false);
-  const [showBadge, setShowBadge] = useState(false);
   const [formStep, setFormStep] = useState<"description" | "contact" | null>(null);
 
   // Contact form fields
@@ -86,24 +86,13 @@ export default function LeadCollector() {
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Show "Need help?" badge on first load
-  useEffect(() => {
-    const timer = setTimeout(() => setShowBadge(true), 1000);
-    const hideTimer = setTimeout(() => setShowBadge(false), 4000);
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(hideTimer);
-    };
-  }, []);
-
-  // Click outside to close on desktop
+  // Click outside to close
   useEffect(() => {
     if (!open) return;
     const handler = (e: MouseEvent) => {
       if (
         panelRef.current &&
-        !panelRef.current.contains(e.target as Node) &&
-        window.innerWidth >= 640
+        !panelRef.current.contains(e.target as Node)
       ) {
         setOpen(false);
       }
@@ -364,64 +353,47 @@ export default function LeadCollector() {
 
   return (
     <>
-      {/* Floating bubble */}
+      {/* Floating pill button — enterprise chat widget style */}
       <AnimatePresence>
         {!open && (
           <motion.button
             key="bubble"
             onClick={() => setOpen(true)}
-            className="fixed bottom-22 right-6 lg:bottom-6 lg:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-teal-500 shadow-lg shadow-teal-500/30 hover:bg-teal-600 transition-colors cursor-pointer"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-              boxShadow: [
-                "0 4px 20px rgba(20,184,166,0.3), 0 0 0 0px rgba(20,184,166,0.15)",
-                "0 6px 28px rgba(20,184,166,0.4), 0 0 0 8px rgba(20,184,166,0.04)",
-                "0 4px 20px rgba(20,184,166,0.3), 0 0 0 0px rgba(20,184,166,0.15)",
-              ],
-            }}
-            exit={{ scale: 0, opacity: 0 }}
+            className="fixed bottom-22 right-6 lg:bottom-6 lg:right-6 z-50 flex items-center gap-2.5 bg-white text-teal-600 pl-4 pr-5 py-3 rounded-full shadow-lg border border-slate-200 hover:shadow-xl hover:border-teal-300 transition-all duration-300 cursor-pointer group"
+            initial={{ scale: 0.9, opacity: 0, y: 10 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 10 }}
             transition={{
               scale: { duration: dur, type: "spring", stiffness: 300, damping: 20 },
               opacity: { duration: dur },
-              boxShadow: { duration: 4, repeat: Infinity, ease: "easeInOut" },
             }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="Open lead collector chat"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            aria-label="Open chat"
           >
-            <Wrench className="h-6 w-6 text-white" />
-
-            {/* "Need help?" badge */}
-            <AnimatePresence>
-              {showBadge && (
-                <motion.span
-                  initial={{ opacity: 0, x: 8, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 8, scale: 0.9 }}
-                  transition={{ duration: 0.25 }}
-                  className="absolute -top-2 -left-20 whitespace-nowrap rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-md border border-slate-200"
-                >
-                  Need help?
-                </motion.span>
-              )}
-            </AnimatePresence>
+            <MessageCircle className="h-5 w-5 text-teal-500 group-hover:text-teal-600 transition-colors duration-300" />
+            <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors duration-300 whitespace-nowrap">
+              Hey, how can we help?
+            </span>
+            {/* Online dot */}
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Chat panel */}
+      {/* Chat panel — floating card, max 380px, bottom-right on all devices */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="chat"
             ref={panelRef}
-            className="fixed z-50 flex flex-col overflow-hidden bg-white shadow-2xl
-              bottom-0 right-0 left-0 h-[75dvh] max-h-[560px] rounded-t-2xl
-              sm:left-auto sm:bottom-24 sm:right-6 sm:h-[540px] sm:w-[380px] sm:rounded-2xl"
+            className="fixed z-50 flex flex-col overflow-hidden bg-white shadow-2xl rounded-2xl
+              bottom-4 right-4 w-[calc(100vw-2rem)] max-w-[380px] h-[min(540px,85dvh)]"
             style={{
-              boxShadow: "0 8px 40px rgba(0,0,0,0.12), 0 2px 12px rgba(20,184,166,0.08)",
+              boxShadow: "0 12px 48px rgba(0,0,0,0.14), 0 2px 12px rgba(20,184,166,0.08)",
             }}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -431,8 +403,14 @@ export default function LeadCollector() {
             {/* Header */}
             <div className="flex shrink-0 items-center justify-between px-5 py-3.5 bg-teal-500">
               <div className="flex items-center gap-3">
-                <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
-                  <Wrench className="h-5 w-5 text-white" />
+                <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/20 overflow-hidden">
+                  <Image
+                    src={`${basePath}/images/logo.jpg`}
+                    alt="Kustom Home Services"
+                    width={36}
+                    height={36}
+                    className="rounded-full object-cover"
+                  />
                   <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-green-300 border-2 border-teal-500" />
                 </div>
                 <div>
@@ -606,8 +584,9 @@ export default function LeadCollector() {
                 </button>
                 <button
                   onClick={handleReset}
-                  className="flex-1 rounded-lg border border-teal-200 py-2.5 text-sm font-medium text-teal-600 transition-all hover:bg-teal-50 cursor-pointer"
+                  className="flex-1 rounded-lg border border-teal-200 py-2.5 text-sm font-medium text-teal-600 transition-all hover:bg-teal-50 cursor-pointer flex items-center justify-center gap-1.5"
                 >
+                  <RotateCcw size={13} />
                   Start Over
                 </button>
               </div>
