@@ -10,7 +10,7 @@ export default function CtaBanner() {
     <section className="relative overflow-hidden" aria-label="Call to action">
       {/* Teal background with diagonal clip */}
       <div
-        className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-16 md:py-20 lg:py-24"
+        className="relative bg-gradient-to-br from-teal-500 via-teal-500 to-teal-600 py-20 md:py-28 lg:py-32"
         style={{
           clipPath: "polygon(0 8%, 100% 0%, 100% 92%, 0% 100%)",
         }}
@@ -26,7 +26,7 @@ export default function CtaBanner() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-950 tracking-tight leading-[1.1]">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-[1.1]">
               Need Something Fixed?
             </h2>
           </ScrollReveal>

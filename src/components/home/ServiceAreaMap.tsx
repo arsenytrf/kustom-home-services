@@ -1,17 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import { MapPin } from "lucide-react";
-import { company } from "@/data/company";
+import { company, basePath } from "@/data/company";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 export default function ServiceAreaMap() {
   return (
     <section
-      className="bg-teal-900 py-20 md:py-28 lg:py-32 overflow-hidden"
+      className="relative bg-teal-900 py-20 md:py-28 lg:py-32 overflow-hidden"
       aria-labelledby="area-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Image
+        src={`${basePath}/images/branded-truck.png`}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-[0.06]"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <SectionHeader
             label="Service Area"
