@@ -1,5 +1,0 @@
-1:"$Sreact.fragment"
-2:I[39756,["/kustom-home-services/_next/static/chunks/12p9vyeuip0ac.js","/kustom-home-services/_next/static/chunks/05smlgrxe4ct4.js","/kustom-home-services/_next/static/chunks/041xcruuuo-jw.js","/kustom-home-services/_next/static/chunks/0d3shmwh5_nmn.js","/kustom-home-services/_next/static/chunks/0myrdnq1.21.a.js"],"default"]
-3:I[37457,["/kustom-home-services/_next/static/chunks/12p9vyeuip0ac.js","/kustom-home-services/_next/static/chunks/05smlgrxe4ct4.js","/kustom-home-services/_next/static/chunks/041xcruuuo-jw.js","/kustom-home-services/_next/static/chunks/0d3shmwh5_nmn.js","/kustom-home-services/_next/static/chunks/0myrdnq1.21.a.js"],"default"]
-4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"eTe91Ew98wgO_6FubhLm1"}
