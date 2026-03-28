@@ -170,7 +170,20 @@ export default function QuoteForm() {
           </div>
         </div>
 
-        {/* Row 2: Describe the Issue */}
+        {/* Row 2: Preferred Date */}
+        <div>
+          <label htmlFor="quote-date" className={labelBase}>
+            Preferred Date
+          </label>
+          <input
+            type="date"
+            id="quote-date"
+            name="preferredDate"
+            className={cn(inputBase, "[color-scheme:dark]")}
+          />
+        </div>
+
+        {/* Row 3: Describe the Issue */}
         <div>
           <label htmlFor="quote-issue" className={labelBase}>
             Describe the Issue

@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 
 /**
- * Handyman-themed light/dark toggle.
- * Pill shape — a knob slides left/right with a spring + rotation.
- * Dark = moon-wrench icon on the right, Light = sun-hammer icon on the left.
+ * Truck-themed light/dark toggle.
+ * A tiny truck drives across a pill-shaped road from left (day) to right (night).
+ * The background transitions from a sunny day scene to a starry night.
  */
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -16,89 +16,137 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label={`Switch to ${isLight ? "dark" : "light"} mode`}
-      className="relative flex items-center w-14 h-7 rounded-full p-0.5 transition-colors duration-300 cursor-pointer border border-transparent hover:border-teal-400/40"
+      className="relative flex items-center w-[68px] h-[32px] rounded-full cursor-pointer overflow-hidden border-2 transition-colors duration-500"
       style={{
+        borderColor: isLight ? "#d4d4d4" : "#2DD4BF33",
         background: isLight
-          ? "linear-gradient(135deg, #E5E5E5 0%, #F5F5F5 100%)"
-          : "linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%)",
+          ? "linear-gradient(180deg, #87CEEB 0%, #B0E0E6 50%, #8B7355 85%, #6B5B3A 100%)"
+          : "linear-gradient(180deg, #0A0A0A 0%, #111827 50%, #1A1A2E 85%, #0F0F23 100%)",
       }}
     >
-      {/* Teal glow behind active side */}
+      {/* Sun or Moon in the sky */}
       <motion.div
-        className="absolute top-0 bottom-0 w-7 rounded-full"
+        className="absolute"
         animate={{
-          left: isLight ? 0 : "calc(100% - 1.75rem)",
-          opacity: 0.25,
+          top: isLight ? 4 : 3,
+          left: isLight ? 8 : 48,
+          scale: isLight ? 1 : 0.7,
         }}
-        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+        transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
+      >
+        {isLight ? (
+          /* Sun */
+          <div
+            className="w-3 h-3 rounded-full"
+            style={{
+              background: "#FFD700",
+              boxShadow: "0 0 8px 2px rgba(255,215,0,0.6)",
+            }}
+          />
+        ) : (
+          /* Moon crescent */
+          <div
+            className="w-2.5 h-2.5 rounded-full"
+            style={{
+              background: "#E8E8E8",
+              boxShadow: "0 0 6px 1px rgba(232,232,232,0.4), inset -2px -1px 0 0 #0A0A0A",
+            }}
+          />
+        )}
+      </motion.div>
+
+      {/* Stars (dark mode only) */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ opacity: isLight ? 0 : 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="absolute w-0.5 h-0.5 bg-white rounded-full" style={{ top: 5, left: 12 }} />
+        <div className="absolute w-[3px] h-[3px] bg-white/80 rounded-full" style={{ top: 8, left: 28 }} />
+        <div className="absolute w-0.5 h-0.5 bg-white/60 rounded-full" style={{ top: 4, left: 38 }} />
+        <div className="absolute w-[3px] h-[3px] bg-teal-400/50 rounded-full" style={{ top: 10, left: 18 }} />
+        <div className="absolute w-0.5 h-0.5 bg-white/70 rounded-full" style={{ top: 6, left: 52 }} />
+      </motion.div>
+
+      {/* Road line at the bottom */}
+      <div
+        className="absolute bottom-[5px] left-2 right-2 h-[2px] rounded-full"
         style={{
-          background:
-            "radial-gradient(circle, rgba(20,184,166,0.5) 0%, transparent 70%)",
+          background: isLight
+            ? "linear-gradient(90deg, transparent 0%, #555 20%, #555 80%, transparent 100%)"
+            : "linear-gradient(90deg, transparent 0%, #333 20%, #333 80%, transparent 100%)",
         }}
       />
 
-      {/* Sliding knob */}
+      {/* Dashed center line on road */}
+      <div
+        className="absolute bottom-[6px] left-4 right-4 h-[1px]"
+        style={{
+          backgroundImage: isLight
+            ? "repeating-linear-gradient(90deg, #999 0px, #999 4px, transparent 4px, transparent 8px)"
+            : "repeating-linear-gradient(90deg, #444 0px, #444 4px, transparent 4px, transparent 8px)",
+        }}
+      />
+
+      {/* Truck — drives across the road */}
       <motion.div
-        className="relative z-10 flex items-center justify-center w-6 h-6 rounded-full shadow-md"
+        className="absolute bottom-[6px] z-10"
         animate={{
-          x: isLight ? 0 : 26,
-          rotate: isLight ? 0 : 180,
+          x: isLight ? 6 : 34,
         }}
         transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 25,
-          mass: 0.8,
-        }}
-        style={{
-          background: isLight
-            ? "linear-gradient(135deg, #ffffff 0%, #F5F5F5 100%)"
-            : "linear-gradient(135deg, #404040 0%, #1A1A1A 100%)",
-          boxShadow: isLight
-            ? "0 1px 4px rgba(0,0,0,0.15), 0 0 8px rgba(20,184,166,0.2)"
-            : "0 1px 4px rgba(0,0,0,0.5), 0 0 8px rgba(20,184,166,0.15)",
+          type: "spring" as const,
+          stiffness: 200,
+          damping: 18,
+          mass: 1.2,
         }}
       >
-        {/* Icon — sun/hammer in light, moon/wrench in dark */}
-        <motion.svg
-          width="14"
+        {/* Truck SVG — tiny pickup truck silhouette */}
+        <svg
+          width="22"
           height="14"
-          viewBox="0 0 24 24"
+          viewBox="0 0 22 14"
           fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ rotate: isLight ? 0 : 180 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className={isLight ? "text-warm-500" : "text-teal-400"}
+          className="drop-shadow-md"
         >
-          {isLight ? (
-            /* Sun + hammer hybrid */
-            <>
-              {/* Sun circle */}
-              <circle cx="12" cy="12" r="4" />
-              {/* Rays — cardinal directions like a tool crosshair */}
-              <line x1="12" y1="2" x2="12" y2="5" />
-              <line x1="12" y1="19" x2="12" y2="22" />
-              <line x1="2" y1="12" x2="5" y2="12" />
-              <line x1="19" y1="12" x2="22" y2="12" />
-              {/* Diagonal rays — shorter, hammer-head feel */}
-              <line x1="4.9" y1="4.9" x2="6.7" y2="6.7" />
-              <line x1="17.3" y1="17.3" x2="19.1" y2="19.1" />
-              <line x1="19.1" y1="4.9" x2="17.3" y2="6.7" />
-              <line x1="6.7" y1="17.3" x2="4.9" y2="19.1" />
-            </>
-          ) : (
-            /* Moon + wrench hybrid */
-            <>
-              {/* Moon crescent */}
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              {/* Small wrench mark */}
-              <line x1="14" y1="8" x2="16" y2="6" />
-            </>
-          )}
-        </motion.svg>
+          {/* Truck bed */}
+          <rect x="0" y="4" width="10" height="6" rx="1" fill={isLight ? "#1A1A1A" : "#1A1A1A"} />
+          {/* Truck cab */}
+          <path
+            d="M10 4 L10 2 C10 1 11 0 12 0 L17 0 C18 0 19 1 19 2 L19 10 L10 10 L10 4Z"
+            fill={isLight ? "#1A1A1A" : "#1A1A1A"}
+          />
+          {/* Windshield */}
+          <path
+            d="M11.5 1.5 L16.5 1.5 L17.5 4 L11 4 Z"
+            fill="#14B8A6"
+            opacity="0.8"
+          />
+          {/* Headlight */}
+          <rect x="18.5" y="5" width="1.5" height="2" rx="0.5" fill={isLight ? "#FFD700" : "#FFD700"} />
+          {/* Taillight */}
+          <rect x="0" y="5" width="1" height="2" rx="0.5" fill="#EF4444" />
+          {/* Front wheel */}
+          <circle cx="15" cy="10" r="2.5" fill="#333" stroke="#555" strokeWidth="0.5" />
+          <circle cx="15" cy="10" r="1" fill="#666" />
+          {/* Rear wheel */}
+          <circle cx="5" cy="10" r="2.5" fill="#333" stroke="#555" strokeWidth="0.5" />
+          <circle cx="5" cy="10" r="1" fill="#666" />
+          {/* KUSTOM text on the side */}
+          <text x="2" y="8.5" fill="#14B8A6" fontSize="3" fontWeight="bold" fontFamily="sans-serif">K</text>
+        </svg>
+
+        {/* Headlight glow */}
+        {!isLight && (
+          <motion.div
+            className="absolute -right-1 top-1 w-4 h-3"
+            animate={{ opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            style={{
+              background: "radial-gradient(ellipse at left, rgba(255,215,0,0.3) 0%, transparent 70%)",
+            }}
+          />
+        )}
       </motion.div>
     </button>
   );

@@ -186,6 +186,27 @@ export default function HeroForm() {
           </div>
         </div>
 
+        {/* Preferred Date */}
+        <div>
+          <label
+            htmlFor="preferred-date"
+            className="block text-xs font-display uppercase tracking-wider text-slate-400 mb-1.5"
+          >
+            Preferred Date
+          </label>
+          <input
+            type="date"
+            id="preferred-date"
+            name="preferredDate"
+            className={cn(
+              "w-full bg-slate-900/80 border border-slate-700 text-white px-4 py-3 text-sm",
+              "min-h-[46px] [-webkit-appearance:none] [color-scheme:dark]",
+              "focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/50",
+              "transition-colors"
+            )}
+          />
+        </div>
+
         {/* Issue Description */}
         <div>
           <label
