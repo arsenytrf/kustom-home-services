@@ -168,7 +168,7 @@ export default function ContactPage() {
               {contactCards.map((card, i) => {
                 const Icon = card.icon;
                 const inner = (
-                  <div className="flex items-start gap-4 p-5 bg-slate-50 border border-slate-200 hover:border-teal-300 transition-colors rounded-xl">
+                  <div className="flex items-start gap-4 p-5 bg-white border border-slate-200 hover:border-teal-300 hover:shadow-md transition-all duration-300 rounded-xl shadow-sm">
                     <div className="shrink-0 w-10 h-10 bg-teal-50 border border-teal-200 flex items-center justify-center rounded-lg">
                       <Icon className="w-5 h-5 text-teal-600" />
                     </div>
@@ -189,10 +189,7 @@ export default function ContactPage() {
                 return (
                   <ScrollReveal key={card.label} delay={i * 0.06}>
                     {card.href ? (
-                      <a
-                        href={card.href}
-                        className="block"
-                      >
+                      <a href={card.href} className="block">
                         {inner}
                       </a>
                     ) : (
@@ -227,8 +224,39 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* -- What Happens Next ------------------------------------ */}
+      {/* -- Google Maps ------------------------------------------ */}
       <section className="bg-slate-50 py-20 md:py-28">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <SectionHeader
+              label="Find Us"
+              title="Based in Okeechobee, FL"
+              description="Centrally located to serve all of Florida. From Fort Myers to Orlando and everywhere in between."
+              align="center"
+              light
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56763.25078520377!2d-80.86138565!3d27.2389343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d0ac0a7c5c285d%3A0x8cf2a1a3dbc14e6!2sOkeechobee%2C%20FL!5e0!3m2!1sen!2sus!4v1711000000000!5m2!1sen!2sus"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Kustom Home Services location — Okeechobee, FL"
+                className="w-full"
+              />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* -- What Happens Next ------------------------------------ */}
+      <section className="bg-white py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -240,14 +268,14 @@ export default function ContactPage() {
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
                 <ScrollReveal key={step.number} delay={i * 0.1}>
-                  <div className="relative text-center p-6">
+                  <div className="relative text-center p-8 bg-slate-50 border border-slate-200 rounded-xl hover:border-teal-300 hover:shadow-md transition-all duration-300">
                     {/* Step number */}
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 font-display text-7xl font-bold text-slate-200/60 select-none">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 font-display text-7xl font-bold text-slate-100 select-none">
                       {step.number}
                     </span>
                     <div className="relative">
@@ -270,7 +298,7 @@ export default function ContactPage() {
       </section>
 
       {/* -- Trust Section ---------------------------------------- */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-slate-50 py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -282,12 +310,12 @@ export default function ContactPage() {
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {trustItems.map((item, i) => {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={item.title} delay={i * 0.08}>
-                  <div className="text-center p-6 border border-slate-200 bg-slate-50 hover:border-teal-300 transition-colors rounded-xl">
+                  <div className="text-center p-6 border border-slate-200 bg-white hover:border-teal-300 hover:shadow-md transition-all duration-300 rounded-xl">
                     <div className="w-12 h-12 bg-teal-50 border border-teal-200 flex items-center justify-center mx-auto mb-4 rounded-xl">
                       <Icon className="w-6 h-6 text-teal-600" />
                     </div>

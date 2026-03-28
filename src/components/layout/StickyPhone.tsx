@@ -21,7 +21,7 @@ export default function StickyPhone() {
     <a
       href={`tel:${company.phoneRaw}`}
       className={cn(
-        "fixed bottom-6 right-6 z-50 lg:hidden flex items-center justify-center w-14 h-14 rounded-full bg-teal-500 hover:bg-teal-600 text-white shadow-lg shadow-teal-500/30 transition-all duration-300",
+        "fixed bottom-6 left-6 z-50 lg:hidden flex items-center justify-center w-14 h-14 rounded-full bg-teal-500 hover:bg-teal-600 text-white shadow-lg shadow-teal-500/30 transition-all duration-300",
         visible
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-4 opacity-0 scale-90 pointer-events-none"

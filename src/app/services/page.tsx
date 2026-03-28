@@ -107,7 +107,7 @@ export default function ServicesPage() {
                     >
                       {/* Image */}
                       <div
-                        className={`relative aspect-[4/3] overflow-hidden bg-slate-100 rounded-xl shadow-lg ${
+                        className={`relative aspect-[4/3] overflow-hidden bg-slate-100 rounded-2xl shadow-xl group ${
                           isEven ? "lg:order-2" : ""
                         }`}
                       >
@@ -115,7 +115,7 @@ export default function ServicesPage() {
                           src={imageSrc}
                           alt={service.title}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                         {/* Number overlay */}
@@ -165,7 +165,7 @@ export default function ServicesPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
                 {
                   title: "Free Estimates",
@@ -182,7 +182,7 @@ export default function ServicesPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="p-6 border border-slate-200 bg-white rounded-xl shadow-sm"
+                  className="p-6 border border-slate-200 bg-white rounded-xl shadow-sm hover:shadow-md hover:border-teal-300 transition-all duration-300"
                 >
                   <CheckCircle2 className="w-8 h-8 text-teal-500 mb-4 mx-auto" />
                   <h3 className="font-display text-lg font-bold text-slate-900 mb-2">
