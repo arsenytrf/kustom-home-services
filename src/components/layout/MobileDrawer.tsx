@@ -104,10 +104,19 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between px-8 py-6">
-              <span className="font-display text-lg font-bold tracking-tight">
-                <span className="text-teal-600">KUSTOM</span>{" "}
-                <span className="text-slate-900">HOME SERVICES</span>
-              </span>
+              <Link href="/" onClick={onClose} className="flex items-center gap-2">
+                <Image
+                  src={`${basePath}/images/logo.jpg`}
+                  alt="Kustom Home Services"
+                  width={36}
+                  height={36}
+                  className="rounded-full"
+                />
+                <span className="font-display text-lg font-bold tracking-tight">
+                  <span className="text-teal-600">KUSTOM</span>{" "}
+                  <span className="text-slate-900">HOME SERVICES</span>
+                </span>
+              </Link>
               <button
                 onClick={onClose}
                 className="p-2 text-slate-400 hover:text-slate-900 transition-colors"
